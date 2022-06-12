@@ -49,7 +49,11 @@ return require('packer').startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
 }
   use "rebelot/kanagawa.nvim" -- Colorscheme
+  use 'christoomey/vim-tmux-navigator' -- For vim/tmux movement
+  use 'christoomey/vim-tmux-runner'
 
+------------------------------------------------------------
+-- Plugins go Here Robert
 ------------------------------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
