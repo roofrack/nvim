@@ -32,29 +32,76 @@ packer.init {
 
 -- Put this before all the plugins
 return require('packer').startup(function(use)
+
 ------------------------------------------------------------
--- Plugins go Here Robert
+-- Plugins go below here Robert
 ------------------------------------------------------------
 
-  use 'wbthomason/packer.nvim' -- Have packer manage itself
+  -- this will make packer update itself
+  use 'wbthomason/packer.nvim'
+
+  -- color schemes
+  use "rebelot/kanagawa.nvim" 
+
+  -- treesitter
   use {
-    'nvim-lualine/lualine.nvim', -- Status Line
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+  }
+
+  -- status line
+  use {
+    'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+
+  -- file explorer
   use {
-    'kyazdani42/nvim-tree.lua', -- File Explorer
+    'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
-}
-  use "rebelot/kanagawa.nvim" -- Colorscheme
+  }
+
+  -- commentary
+  use 'b3nj5m1n/kommentary'
+
+  -- tmux plugins
   use 'christoomey/vim-tmux-navigator' -- For vim/tmux movement
   use 'christoomey/vim-tmux-runner'
 
+  -- cmp completion engine
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+
+  -- cmp completion extensions
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"
+
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
+  -- LSP
+  use "neovim/nvim-lspconfig" -- enable LSP
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
+  -- autopairs
+  use {
+	"windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+}
+
+
 ------------------------------------------------------------
--- Plugins go Here Robert
+-- Plugins above here
 ------------------------------------------------------------
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then

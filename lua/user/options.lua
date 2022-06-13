@@ -3,6 +3,7 @@
 -- General Settings
 ------------------------------------------------------------
 
+  vim.opt.wrap = false                            -- display lines as one long line
   vim.opt.expandtab = true                        -- convert tabs to spaces
   vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
   vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
