@@ -1,16 +1,26 @@
 
-------------------------------------------------------------
--- General Settings
-------------------------------------------------------------
+-- [ General settings] -------------------------------------
+-- Lets use a little Lua here to set the options.
 
-  vim.opt.wrap = false                            -- display lines as one long line
+local options = {
+  wrap = false,                            -- display lines as one long line
+  fileencoding = "utf-8",                  -- the encoding written to a file
+  mouse = "a",                             -- allow the mouse to be used in neovim
+  number = true,                           -- set numbered lines
+  cursorline = true,                           -- set numbered lines
+  showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
+  termguicolors = true,
+  splitbelow = true,                       -- force all horizontal splits to go below current window
+  splitright = true,                       -- force all vertical splits to go to the right of current window
+}
+
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end
+
+
+-- [ White space ] -----------------------------------------
+-- Or you can set options the plain old regular way.
   vim.opt.expandtab = true                        -- convert tabs to spaces
-  vim.opt.fileencoding = "utf-8"                  -- the encoding written to a file
-  vim.opt.mouse = "a"                             -- allow the mouse to be used in neovim
-  vim.opt.number = true                           -- set numbered lines
-  vim.opt.cursorline = true                           -- set numbered lines
-  vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
-  vim.opt.showmode = false                        -- we don't need to see things like -- INSERT -- anymore
   vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
-  vim.opt.termguicolors = true
-  vim.opt.wrap = false                            -- display lines as one long line
+  vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation

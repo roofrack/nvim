@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
   -- color schemes
   use "rebelot/kanagawa.nvim" 
 
+
   -- treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -80,6 +81,7 @@ return require('packer').startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-nvim-lua" -- adding completion for lua config files
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine

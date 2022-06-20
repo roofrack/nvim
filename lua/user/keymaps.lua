@@ -1,6 +1,5 @@
-------------------------------------------------------------
--- Some General Mappings
-------------------------------------------------------------
+-- [ Some General Mappings ] -------------------------------
+
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -19,11 +18,10 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = ','
 keymap('n', '<leader>a', 'ggVG', opts)
 
-
 -- Easier to save but need a better one then this
 keymap('n', ';', ':', {})
 
--- Exit modes using jk etc... 
+-- Exit modes using jk etc...
 keymap('i', 'jk', '<Esc>', opts)
 keymap('i', 'kj', '<Esc>', opts)
 keymap('c', 'jk', '<Esc>', opts)
@@ -52,5 +50,19 @@ keymap('n', '<leader>ek', ':vsplit<cr>:e ~/.config/nvim/lua/user/keymaps.lua<CR>
 keymap('n', '<leader>eo', ':vsplit<cr>:e ~/.config/nvim/lua/user/options.lua<CR>', opts)
 keymap('n', '<leader>ep', ':vsplit<cr>:e ~/.config/nvim/lua/user/plugins.lua<CR>:73<CR>', opts)
 
+-- Visual --
+-- Stay in indent mode
+keymap("v", "<", "<gv", opts)
+keymap("v", ">", ">gv", opts)
+
+
+-- [ Plugin mappings ] -------------------------------------
+
 -- NvimTreeToggle
-keymap("n", "<C-n>", [[:NvimTreeToggle<CR>]], opts)
+keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
+
+-- VimTmuxRunner
+keymap("n", "f<CR>", ":VtrSendFile<CR>", opts)
+
+-- Nvim Autopairs
+keymap("i", "<C-l>", "<Esc>A ", opts)

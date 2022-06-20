@@ -46,7 +46,7 @@ local branch = {
 
 local location = {
 	"location",
-	padding = 1,
+	padding = 0,
 }
 
 -- cool function for progress
@@ -83,8 +83,9 @@ lualine.setup({
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		-- lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_x = { "encoding", filetype },
-		lualine_y = { location },
-		lualine_z = { progress },
+		-- lualine_y = { progress },
+		lualine_y = {},
+		lualine_z = { location, progress },
 	},
 	inactive_sections = {
 		lualine_a = {},
