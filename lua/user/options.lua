@@ -7,7 +7,7 @@ local options = {
   fileencoding = "utf-8",                  -- the encoding written to a file
   mouse = "a",                             -- allow the mouse to be used in neovim
   number = true,                           -- set numbered lines
-  cursorline = true,                           -- set numbered lines
+  cursorline = true,                       -- set numbered lines
   showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
   termguicolors = true,
   splitbelow = true,                       -- force all horizontal splits to go below current window
@@ -17,7 +17,6 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
 
 -- [ White space ] -----------------------------------------
 -- Or you can set options the plain old regular way.

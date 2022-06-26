@@ -24,6 +24,11 @@ local diff = {
   cond = hide_in_width
 }
 
+local progress = {
+  padding = 1,
+  "progress"
+}
+
 local mode = {
 	"mode",
 	fmt = function(str)
@@ -44,20 +49,24 @@ local branch = {
 	icon = "",
 }
 
-local location = {
+--[[ local location = {
 	"location",
 	padding = 0,
-}
+} ]]
+
+local location = function()
+  return "%3l:%-2v %L"
+end
 
 -- cool function for progress
-local progress = function()
+--[[ local progress = function()
 	local current_line = vim.fn.line(".")
 	local total_lines = vim.fn.line("$")
 	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
 	local line_ratio = current_line / total_lines
 	local index = math.ceil(line_ratio * #chars)
 	return chars[index]
-end
+end ]]
 
 local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
@@ -84,8 +93,19 @@ lualine.setup({
 		-- lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_x = { "encoding", filetype },
 		-- lualine_y = { progress },
-		lualine_y = {},
-		lualine_z = { location, progress },
+		-- lualine_y = {},
+		-- lualine_y = {percent_thru_file},
+		lualine_y = {
+        progress,
+    },
+		-- lualine_z = { location, progress },
+		-- lualine_z = { location, lines_count },
+		lualine_z = {
+      {
+        location,
+        padding = 0,
+      }
+    },
 	},
 	inactive_sections = {
 		lualine_a = {},

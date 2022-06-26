@@ -41,8 +41,9 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- color schemes
-  use "rebelot/kanagawa.nvim" 
-
+  use "rebelot/kanagawa.nvim"
+  -- to get a nice bg color for the cursor line update this variable
+  -- sumiInk3 = "#2A2A2E"
 
   -- treesitter
   use {

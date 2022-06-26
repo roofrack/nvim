@@ -18,6 +18,9 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = ','
 keymap('n', '<leader>a', 'ggVG', opts)
 
+-- Source init.lua
+keymap('n', '<leader>sv', ':w<Cr>:so<Cr>', opts)
+
 -- Easier to save but need a better one then this
 keymap('n', ';', ':', {})
 
