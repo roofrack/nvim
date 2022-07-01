@@ -16,10 +16,10 @@ local opts = { noremap = true, silent = true }
 
 -- Set leader key
 vim.g.mapleader = ','
-keymap('n', '<leader>a', 'ggVG', opts)
 
--- Source init.lua
-keymap('n', '<leader>sv', ':w<Cr>:so<Cr>', opts)
+-- Leader mappings
+keymap('n', '<leader>a', 'ggVG', opts) -- highligt all text
+keymap('n', '<leader>sv', ':w<Cr>:so<Cr>', opts) -- save and source file
 
 -- Easier to save but need a better one then this
 keymap('n', ';', ':', {})
@@ -49,9 +49,10 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Open vim configs for quick edit
-keymap('n', '<leader>ek', ':vsplit<cr>:e ~/.config/nvim/lua/user/keymaps.lua<CR>', opts)
-keymap('n', '<leader>eo', ':vsplit<cr>:e ~/.config/nvim/lua/user/options.lua<CR>', opts)
-keymap('n', '<leader>ep', ':vsplit<cr>:e ~/.config/nvim/lua/user/plugins.lua<CR>:73<CR>', opts)
+keymap('n', '<leader>ek', ':e ~/.config/nvim/lua/user/keymaps.lua<CR>', opts)
+keymap('n', '<leader>eo', ':e ~/.config/nvim/lua/user/options.lua<CR>', opts)
+-- keymap('n', '<leader>ep', ':vsplit<cr>:e ~/.config/nvim/lua/user/plugins.lua<CR>:73<CR>', opts)
+keymap('n', '<leader>ep', ':e ~/.config/nvim/lua/user/plugins.lua<CR>:73<CR>', opts)
 
 -- Visual --
 -- Stay in indent mode

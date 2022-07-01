@@ -25,7 +25,7 @@ local diff = {
 }
 
 local progress = {
-  padding = 1,
+  padding = 0,
   "progress"
 }
 
@@ -55,7 +55,8 @@ local branch = {
 } ]]
 
 local location = function()
-  return "%3l:%-2v %L"
+  -- return "%l:%-2v %L"
+  return "%l/%L col:%-2v"
 end
 
 -- cool function for progress
@@ -75,9 +76,10 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-    --theme = "auto",
-    --theme = "powerline",
+    -- theme = "auto",
+    -- theme = "powerline",
 		theme = "powerline_dark",
+		-- theme = "kanagawa",
 --		component_separators = { left = "", right = "" },
 --		section_separators = { left = "", right = "" },
 --    section_separators = { left = '', right = '' },

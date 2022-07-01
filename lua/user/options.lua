@@ -23,3 +23,7 @@ end
   vim.opt.expandtab = true                        -- convert tabs to spaces
   vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
   vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
+
+-- Turn off line numbers in the neovim terminal
+-- this is how you run vimscript in a lua file
+  vim.api.nvim_exec([[ autocmd TermOpen * setlocal nonumber ]], false)
