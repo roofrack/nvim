@@ -105,6 +105,9 @@ return require('packer').startup(function(use)
   require("toggleterm").setup()
   end}
 
+   -- Plugins I developed myself (tjdevries tutorial)
+  use "/home/rob/plugins/stackmap.nvim"
+
 ------------------------------------------------------------
 -- Plugins go above here Robert
 ------------------------------------------------------------

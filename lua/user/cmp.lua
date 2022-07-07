@@ -8,7 +8,8 @@ if not snip_status_ok then
   return
 end
 
-require("luasnip/loaders/from_vscode").lazy_load()
+-- I have already loaded these "friendly-snippets" plugin snippets in my luasnip.lua config file.
+-- require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
@@ -52,8 +53,9 @@ cmp.setup {
     end,
   },
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+    -- I have these next two lines mapped below so dont think I need them here.
+    -- ["<C-k>"] = cmp.mapping.select_prev_item(),
+		-- ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -62,10 +64,19 @@ cmp.setup {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
+
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = true },
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    -- I have also kept tab for expanding the snippet here in addition to C-l. Just sometimes like using tab oK? Sheesh.
+    ["<C-l>"] = cmp.mapping.confirm { select = true },
+    ["<Tab>"] = cmp.mapping.confirm { select = true },
+
+    --------------------------------------------------------
+    -- Hey Rob, you commented out the j,k mapping above because I dont think you need it with these mappings below.
+    -- With these below j,k  will navigate thru the completion list as well as do the jump forward/back thing in the snippet.
+
+    -- ["<Tab>"] = cmp.mapping(function(fallback)
+    ["<C-j>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expandable() then
@@ -81,7 +92,9 @@ cmp.setup {
       "i",
       "s",
     }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
+
+    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
+    ["<C-k>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -93,6 +106,7 @@ cmp.setup {
       "i",
       "s",
     }),
+    --------------------------------------------------------
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
