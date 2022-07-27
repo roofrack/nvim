@@ -1,7 +1,11 @@
 -- [ Some General Mappings ] -------------------------------
 
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+-- Set a variable to shorten function name...
+-- Hey Rob use 'vim.keymap.set'. It is more for using the lua language and if you
+-- use vim.api.nvim_set_keymap while using a function in the mapping then it
+-- will throw an error. So use the newer way using 'vim.keymap.set' .
+local keymap = vim.keymap.set
+-- local keymap = vim.api.nvim_set_keymap
 
 local opts = { noremap = true, silent = true }
 --local opts = { noremap = true }
@@ -19,7 +23,8 @@ vim.g.mapleader = ','
 
 -- Leader mappings
 keymap('n', '<leader>a', 'ggVG', opts) -- highligt all text
-keymap('n', '<leader>sv', ':w<Cr>:so<Cr>', opts) -- save and source file
+-- keymap('n', '<leader>sv', '<cmd>w<CR><cmd>source ~/.config/nvim/lua/user/snip/init.lua<CR>', opts)
+keymap('n', '<leader>sv', '<cmd>w<CR><cmd>source %<CR>', opts)
 
 -- Easier to save but need a better one then this
 keymap('n', ';', ':', {})
@@ -69,4 +74,5 @@ keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 keymap("n", "f<CR>", ":VtrSendFile<CR>", opts)
 
 -- Nvim Autopairs
-keymap("i", "<C-l>", "<Esc>A ", opts)
+-- keymap("i", "<C-l>", "<Esc>A ", opts)
+keymap("i", "<C-l>", "<Esc>%%a", opts)

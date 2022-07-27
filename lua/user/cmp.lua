@@ -8,9 +8,6 @@ if not snip_status_ok then
   return
 end
 
--- I have already loaded these "friendly-snippets" plugin snippets in my luasnip.lua config file.
--- require("luasnip/loaders/from_vscode").lazy_load()
-
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
@@ -53,9 +50,19 @@ cmp.setup {
     end,
   },
   mapping = {
-    -- I have these next two lines mapped below so dont think I need them here.
-    -- ["<C-k>"] = cmp.mapping.select_prev_item(),
-		-- ["<C-j>"] = cmp.mapping.select_next_item(),
+    -- Use C-n/p or Tab to Cycle through all the cmp completion/lsp suggestions.
+    -- I used the following mappings in order to preserve
+    -- Ctr j/k for luasnip jumping through the snippet nodes. I tried mapping a multi-use version
+    -- but although it works, it is a pain because if in an insert node and cmp has a suggestion then
+    -- it wont allow you to continue jumping. It wants you to select a cmp suggestion. So I prefer this
+    -- way of mapping. See the luasnip init.lua for the luasnip mappings.
+		["<Tab>"] = cmp.mapping.select_next_item(),
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+
+    ["<C-l>"] = cmp.mapping.confirm { select = true }, -- This expands the snippet
+
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -65,18 +72,22 @@ cmp.setup {
       c = cmp.mapping.close(),
     },
 
+-- #########################################################
+    -- CAN PROBABLY DELETE ALL THIS
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     -- I have also kept tab for expanding the snippet here in addition to C-l. Just sometimes like using tab oK? Sheesh.
-    ["<C-l>"] = cmp.mapping.confirm { select = true },
-    ["<Tab>"] = cmp.mapping.confirm { select = true },
+    -- ["<CR>"] = cmp.mapping.confirm { select = true },
+    -- ["<C-l>"] = cmp.mapping.confirm { select = true },
+    -- ["<C-l>"] = cmp.mapping.confirm { select = true },
+    -- ["<Tab>"] = cmp.mapping.confirm { select = true },
 
     --------------------------------------------------------
     -- Hey Rob, you commented out the j,k mapping above because I dont think you need it with these mappings below.
     -- With these below j,k  will navigate thru the completion list as well as do the jump forward/back thing in the snippet.
 
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    ["<C-j>"] = cmp.mapping(function(fallback)
+    --[[ ["<Tab>"] = cmp.mapping(function(fallback)
+    -- ["<C-j>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expandable() then
@@ -93,8 +104,8 @@ cmp.setup {
       "s",
     }),
 
-    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-    ["<C-k>"] = cmp.mapping(function(fallback)
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+    -- ["<C-k>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -105,8 +116,9 @@ cmp.setup {
     end, {
       "i",
       "s",
-    }),
+    }), ]]
     --------------------------------------------------------
+-- #########################################################
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },

@@ -13,6 +13,7 @@ local options = {
   splitbelow = true,                       -- force all horizontal splits to go below current window
   splitright = true,                       -- force all vertical splits to go to the right of current window
   swapfile = false,
+  signcolumn = "yes",                      -- Prevents annoying open/close column
 }
 
 for k, v in pairs(options) do
@@ -25,6 +26,12 @@ end
   vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
   vim.opt.shiftwidth = 2                          -- the number of spaces inserted for each indentation
 
--- Turn off line numbers in the neovim terminal
+-- [ Folding ] ---------------------------------------------
+-- Or you can set a variable as a shortcut. Less typing.
+  local opt = vim.opt
+  -- opt.foldmethod = "expr"
+  -- opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitter to fold
+
 -- this is how you run vimscript in a lua file
   vim.api.nvim_exec([[ autocmd TermOpen * setlocal nonumber ]], false)
+  vim.cmd "hi MatchParen ctermbg=blue guibg=blue" -- Better color so I can see the matching bracket

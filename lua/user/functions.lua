@@ -1,4 +1,4 @@
--- [[ Custom functions ]] ----------------------------------
+-- [ custom functions ] ------------------------------------
 
 -- This works well for printing out a table of key value prs.
 -- for example rather then :lua print(vim.inspect(vim.api))
