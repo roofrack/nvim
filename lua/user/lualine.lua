@@ -59,6 +59,7 @@ local location = function()
   return "%l/%L col:%-2v"
 end
 
+
 -- cool function for progress
 --[[ local progress = function()
 	local current_line = vim.fn.line(".")
@@ -80,7 +81,7 @@ lualine.setup({
     -- theme = "powerline",
 		theme = "powerline_dark",
 		-- theme = "kanagawa",
---		component_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
 --		section_separators = { left = "", right = "" },
 --    section_separators = { left = '', right = '' },
 --    component_separators = { left = '', right = '' },
@@ -93,7 +94,14 @@ lualine.setup({
 		lualine_c = { 'filename' },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		-- lualine_x = { diff, spaces, "encoding", filetype },
-		lualine_x = { "fileformat", "hostname", "encoding", filetype },
+		-- lualine_x = { "fileformat", "hostname", "encoding", filetype },
+		lualine_x = {
+        "hostname",
+        "fileformat",
+        "encoding",
+        filetype,
+    },
+
 		-- lualine_y = { progress },
 		-- lualine_y = {},
 		-- lualine_y = {percent_thru_file},
