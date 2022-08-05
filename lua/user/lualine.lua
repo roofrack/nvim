@@ -21,12 +21,12 @@ local diff = {
 	"diff",
 	colored = false,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-  cond = hide_in_width
+	cond = hide_in_width,
 }
 
 local progress = {
-  padding = 0,
-  "progress"
+	padding = 1,
+	"progress",
 }
 
 local mode = {
@@ -55,10 +55,9 @@ local branch = {
 } ]]
 
 local location = function()
-  -- return "%l:%-2v %L"
-  return "%l/%L col:%-2v"
+	-- return "%l:%-2v %L"
+	return "%l/%L col:%-2v"
 end
-
 
 -- cool function for progress
 --[[ local progress = function()
@@ -77,45 +76,45 @@ end
 lualine.setup({
 	options = {
 		icons_enabled = true,
-    -- theme = "auto",
-    -- theme = "powerline",
+		-- theme = "auto",
+		-- theme = "powerline",
 		theme = "powerline_dark",
 		-- theme = "kanagawa",
-    component_separators = { left = "", right = "" },
---		section_separators = { left = "", right = "" },
---    section_separators = { left = '', right = '' },
---    component_separators = { left = '', right = '' },
+		component_separators = { left = "", right = "" },
+		--		section_separators = { left = "", right = "" },
+		--    section_separators = { left = '', right = '' },
+		--    component_separators = { left = '', right = '' },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
 	},
 	sections = {
 		lualine_a = { mode },
 		lualine_b = { branch, diagnostics },
-		lualine_c = { 'filename' },
+		lualine_c = { "filename" },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		-- lualine_x = { diff, spaces, "encoding", filetype },
 		-- lualine_x = { "fileformat", "hostname", "encoding", filetype },
 		lualine_x = {
-        "hostname",
-        "fileformat",
-        "encoding",
-        filetype,
-    },
+			"hostname",
+			"fileformat",
+			"encoding",
+			filetype,
+		},
 
 		-- lualine_y = { progress },
 		-- lualine_y = {},
 		-- lualine_y = {percent_thru_file},
 		lualine_y = {
-        progress,
-    },
+			progress,
+		},
 		-- lualine_z = { location, progress },
 		-- lualine_z = { location, lines_count },
 		lualine_z = {
-      {
-        location,
-        padding = 0,
-      }
-    },
+			{
+				location,
+				padding = 0,
+			},
+		},
 	},
 	inactive_sections = {
 		lualine_a = {},
