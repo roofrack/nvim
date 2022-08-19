@@ -116,14 +116,14 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	-- toggleter
-	use({
+	-- toggleterm
+	--[[ use({
 		"akinsho/toggleterm.nvim",
 		tag = "v1.*",
 		config = function()
 			require("toggleterm").setup()
 		end,
-	})
+	}) ]]
 
 	-- Plugins I developed myself (tjdevries tutorial)
 	use("/home/rob/plugins/stackmap.nvim")

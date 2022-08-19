@@ -34,4 +34,3 @@ local opt = vim.opt
 
 -- this is how you run vimscript in a lua file
 vim.api.nvim_exec([[ autocmd TermOpen * setlocal nonumber ]], false)
-vim.api.nvim_command(" highlight WinSeparator guibg=None ")
