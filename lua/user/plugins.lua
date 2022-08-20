@@ -41,9 +41,12 @@ return require("packer").startup(function(use)
 
 	-- color schemes
 	use("rebelot/kanagawa.nvim")
+	local my_colors = {
+		sumiInk3 = "#2A2A2E",
+	}
 	-- to get a nice bg color for the cursor line update this variable
 	-- sumiInk3 = "#2A2A2E"
-	use({ "ellisonleao/gruvbox.nvim" })
+	-- use({ "ellisonleao/gruvbox.nvim" })
 
 	-- treesitter
 	use({
