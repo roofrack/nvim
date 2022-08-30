@@ -1,13 +1,3 @@
--- vim.cmd([[
--- try
--- colorscheme kanagawa
-
--- catch /^Vim\%((\a\+)\)\=:E185/
--- colorscheme default
--- set background=dark
--- endtry
--- ]])
-
 -- Default options:
 require("kanagawa").setup({
 	undercurl = true, -- enable undercurls
@@ -24,7 +14,7 @@ require("kanagawa").setup({
 	globalStatus = false, -- adjust window separators highlight for laststatus=3
 	terminalColors = true, -- define vim.g.terminal_color_{0,17}
 	colors = {
-		sumiInk3 = "#2A2A2E", -- Rob this will give a nicer cursorline color
+		sumiInk3 = "#2A2A2E", -- Rob you added this to give a nicer cursorline color
 	},
 	overrides = {},
 	theme = "default", -- Load "default" theme or the experimental "light" theme
