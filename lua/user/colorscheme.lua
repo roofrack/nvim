@@ -17,7 +17,8 @@ require("kanagawa").setup({
 		sumiInk3 = "#2A2A2E", -- Rob you added this to give a nicer cursorline color
 	},
 	overrides = {},
-	theme = "default", -- Load "default" theme or the experimental "light" theme
+	-- theme = "default", -- Load "default" theme or the experimental "light" theme
+	theme = "dragon",
 })
 
 -- setup must be called before loading
