@@ -36,6 +36,8 @@ keymap("c", "jk", "<Esc>", opts)
 keymap("c", "kj", "<Esc>", opts)
 keymap("v", "jk", "<Esc>", opts)
 keymap("v", "kj", "<Esc>", opts)
+keymap("s", "jk", "<Esc>", opts)
+keymap("s", "kj", "<Esc>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
