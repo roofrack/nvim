@@ -43,7 +43,7 @@ return require("packer").startup(function(use)
 	use("rebelot/kanagawa.nvim")
 	use({
 		"norcalli/nvim-colorizer.lua", -- Shows the color of stuff in vim
-		require("colorizer").setup(),
+		-- require("colorizer").setup(),
 	})
 
 	-- treesitter

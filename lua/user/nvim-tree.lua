@@ -83,7 +83,7 @@ nvim_tree.setup({
 	},
 	view = {
 		width = 25,
-		height = 30,
+		-- height = 30,
 		hide_root_folder = false,
 		side = "left",
 		mappings = {
@@ -97,6 +97,11 @@ nvim_tree.setup({
 		number = false,
 		relativenumber = false,
 	},
+	--[[ renderer = {
+		indent_markers = {
+			enable = true,
+		},
+	}, ]]
 	trash = {
 		cmd = "trash",
 		require_confirm = true,
