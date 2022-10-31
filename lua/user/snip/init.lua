@@ -1,12 +1,15 @@
-local ls = require"luasnip"
-local types = require"luasnip.util.types"
+local status_ok, ls = pcall(require, "luasnip")
+if not status_ok then
+	return
+end
+local types = require("luasnip.util.types")
 
 -- [ Some Options ] ----------------------------------------
 
 ls.config.set_config({
 	history = true, --keep around last snippet local to jump back
 	updateevents = "TextChanged,TextChangedI", --update changes as you type
-  delete_check_events = "TextChanged", -- will delete snippet from history - just works better with this
+	delete_check_events = "TextChanged", -- will delete snippet from history - just works better with this
 	-- enable_autosnippets = true,
 	ext_opts = {
 		[types.choiceNode] = {
@@ -21,24 +24,24 @@ ls.config.set_config({
 -- [ Keymaps ] ---------------------------------------------
 
 -- Jump forwards through snippet nodes
-vim.keymap.set({"i", "s"}, "<C-j>", function()
-  if ls.jumpable(1) then
-    ls.jump(1)
-  end
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+	if ls.jumpable(1) then
+		ls.jump(1)
+	end
 end, { silent = true })
 
 -- Jump backwards
-vim.keymap.set({"i", "s"}, "<C-k>", function()
-  if ls.jumpable(-1) then
-    ls.jump(-1)
-  end
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
+	if ls.jumpable(-1) then
+		ls.jump(-1)
+	end
 end, { silent = true })
 
 -- Choice Node mappings while inside a snippet.
 vim.keymap.set("i", "<C-h>", function()
-  if ls.choice_active() then
-    ls.change_choice(1)
-  end
+	if ls.choice_active() then
+		ls.change_choice(1)
+	end
 end)
 
 -- [ Load Snippets ] ---------------------------------------

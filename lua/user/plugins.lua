@@ -125,6 +125,9 @@ return require("packer").startup(function(use)
 		end,
 	}) ]]
 
+	-- Indent lines
+	use("lukas-reineke/indent-blankline.nvim")
+
 	-- Plugins I developed myself (tjdevries tutorial)
 	use("/home/rob/plugins/stackmap.nvim")
 
