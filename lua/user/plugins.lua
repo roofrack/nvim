@@ -41,8 +41,8 @@ return require("packer").startup(function(use)
 
 	-- color schemes
 	use("rebelot/kanagawa.nvim")
-	use("Akianonymus/nvim-colorizer.lua") -- Shows the color of stuff in vim
-	-- require("colorizer").setup()
+	use("norcalli/nvim-colorizer.lua") -- Shows the color of stuff in vim
+	require("colorizer").setup()
 
 	-- treesitter
 	use({
@@ -129,7 +129,7 @@ return require("packer").startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 
 	-- Plugins I developed myself (tjdevries tutorial)
-	use("/home/rob/plugins/stackmap.nvim")
+	-- use("/home/rob/plugins/stackmap.nvim")
 
 	------------------------------------------------------------
 	-- Plugins go above here Robert
