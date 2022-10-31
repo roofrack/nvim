@@ -42,7 +42,7 @@ return require("packer").startup(function(use)
 	-- color schemes
 	use("rebelot/kanagawa.nvim")
 	use("Akianonymus/nvim-colorizer.lua") -- Shows the color of stuff in vim
-	require("colorizer").setup()
+	-- require("colorizer").setup()
 
 	-- treesitter
 	use({
