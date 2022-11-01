@@ -35,4 +35,5 @@ configs.setup({
 		enable = true,
 		enable_autocmd = false,
 	},
+	run = ":TSUpdate",
 })

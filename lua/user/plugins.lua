@@ -49,7 +49,7 @@ return require("packer").startup(function(use)
 	-- treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
+		-- run = ":TSUpdate",
 	})
 
 	-- status line
