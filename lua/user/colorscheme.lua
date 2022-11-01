@@ -22,7 +22,9 @@ kanagawa.setup({
 	colors = {
 		-- look an kanagawa nvim website at bottom for description of whats what
 		sumiInk3 = "#2A2A2E", -- Rob you added this to give a nicer cursorline color
-		sumiInk4 = "#2D4F67", -- lighter indent lines and line numbers
+		-- sumiInk4 = "#2D4F67", -- lighter indent lines and line numbers
+		sumiInk4 = "#41424F", -- lighter indent lines and line numbers
+		-- sumiInk4 = "#36314B", -- lighter indent lines and line numbers
 	},
 	overrides = {},
 	-- theme = "default", -- Load "default" theme or the experimental "light" theme
