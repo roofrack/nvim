@@ -1,12 +1,3 @@
--- can probably delete this
-------------------------------------------------------------
---nvim-lsp-installer no longer maintained... use mason instead
---[[ local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
-	return
-end ]]
-------------------------------------------------------------
-
 -- This file does three things as far as I can tell. First calls the setup
 -- functions for the mason and mason-lspconfig plugins. As you can see the
 -- mason-lspconfig setup function also provides a list of lsp servers you
@@ -19,27 +10,24 @@ if not status_ok then
 	return
 end
 
-local lspconfig = require("lspconfig")
-
 local servers = { "jsonls", "sumneko_lua", "tsserver", "bashls", "sqlls", "svelte" }
-
--- can probably delete this as well
---[[ lsp_installer.setup({
-	ensure_installed = servers,
-	ui = {
-		border = "rounded",
-	},
-}) ]]
 
 mason_installer.setup({
 	ui = {
 		border = "rounded",
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
 	},
 })
 
 require("mason-lspconfig").setup({
 	ensure_installed = servers,
 })
+
+local lspconfig = require("lspconfig")
 
 for _, server in pairs(servers) do
 	local opts = {
@@ -52,15 +40,3 @@ for _, server in pairs(servers) do
 	end
 	lspconfig[server].setup(opts)
 end
-
-
-
-
-
-
-
-
-
-
-
-
