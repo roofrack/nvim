@@ -91,15 +91,15 @@ return require("packer").startup(function(use)
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- LSP
-	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	--[[ use({
+	-- nvim-lsp-installer is no longer maintained... use mason instead
+	--[[ use("neovim/nvim-lspconfig") -- enable LSP
+	use("williamboman/nvim-lsp-installer") -- simple to use language server installer ]]
+
+	use({
 		"williamboman/mason.nvim", -- newer language-server-installer
 		"williamboman/mason-lspconfig.nvim", -- integrates mason with lsp-config
 		"neovim/nvim-lspconfig", -- default configs for the language servers
-    require("mason").setup(),
-    require("mason-lspconfig").setup(),
-	}) ]]
+	})
 
 	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 	use({
