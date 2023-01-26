@@ -4,7 +4,6 @@ if not status_ok then
 	return
 end
 
--- require("kanagawa").setup({
 kanagawa.setup({
 	undercurl = true, -- enable undercurls
 	commentStyle = { italic = true },

@@ -6,6 +6,7 @@ end
 configs.setup({
 	--ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	ensure_installed = {
+    "help",
 		"html",
 		"css",
 		"javascript",

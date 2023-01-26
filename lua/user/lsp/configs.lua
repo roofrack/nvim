@@ -27,6 +27,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = servers,
 })
 
+-- Setting up the LSP with on_attach
 local lspconfig = require("lspconfig")
 
 for _, server in pairs(servers) do

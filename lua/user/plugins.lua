@@ -35,6 +35,9 @@ return require("packer").startup(function(use)
 	------------------------------------------------------------
 	-- Plugins go below here Robert
 	------------------------------------------------------------
+	-- Hey Rob, these plugins require you to call the setup() function. If you
+	-- have a seperate config file for the plugin then call the setup() there
+	-- otherwise call it here but do not do both.
 
 	-- this will make packer update itself
 	use("wbthomason/packer.nvim")
@@ -43,7 +46,8 @@ return require("packer").startup(function(use)
 	use("rebelot/kanagawa.nvim")
 	use({
 		"norcalli/nvim-colorizer.lua", -- Shows the color of stuff in vim
-		-- require("colorizer").setup(),
+		require("colorizer").setup(),
+		-- hey rob you don't have a seperate config file for this plugin
 	})
 
 	-- treesitter
@@ -59,7 +63,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- file explorer
-	use("kyazdani42/nvim-web-devicons")
+	-- use("kyazdani42/nvim-web-devicons")
 	use({
 		"kyazdani42/nvim-tree.lua",
 		requires = {
@@ -67,7 +71,6 @@ return require("packer").startup(function(use)
 		},
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
-
 	-- commentary
 	use("b3nj5m1n/kommentary")
 
@@ -96,7 +99,7 @@ return require("packer").startup(function(use)
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer ]]
 
 	use({
-		"williamboman/mason.nvim", -- newer language-server-installer
+		"williamboman/mason.nvim", -- newer language-server-installer (MUST INSTALL IN THIS ORDER)
 		"williamboman/mason-lspconfig.nvim", -- integrates mason with lsp-config
 		"neovim/nvim-lspconfig", -- default configs for the language servers
 	})
@@ -104,18 +107,15 @@ return require("packer").startup(function(use)
 	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 	use({
 		"jose-elias-alvarez/null-ls.nvim", -- for formmating & linting n sich ie: eslint_d, prettier
-		config = function()
-			require("null-ls").setup()
-		end,
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
 	-- autopairs
 	use({
 		"windwp/nvim-autopairs",
-		config = function()
+		--[[ config = function()
 			require("nvim-autopairs").setup({})
-		end,
+		end, ]]
 	})
 
 	-- toggleterm
