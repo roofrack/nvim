@@ -43,6 +43,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 nvim_tree.setup({
+	respect_buf_cwd = true, -- Rob you added this so cwd would be persistent
 	disable_netrw = true,
 	hijack_netrw = true,
 	open_on_setup = false,
