@@ -1,5 +1,5 @@
-local ls = require"luasnip"
-local types = require"luasnip.util.types"
+local ls = require("luasnip")
+local types = require("luasnip.util.types")
 local s = ls.snippet
 local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
@@ -17,28 +17,19 @@ local l = require("luasnip.extras").lambda
 local postfix = require("luasnip.extras.postfix").postfix
 local rep = require("luasnip.extras").rep
 
-ls.add_snippets(
-  "javascript", {
+ls.add_snippets("javascript", {
 
-------------------------------------------------------------
+	------------------------------------------------------------
 
-s("happy",
-      t("console.log()")
-    ),
+	s("happy", t("console.log()")),
 
+	------------------------------------------------------------
 
-------------------------------------------------------------
+	s("/", {
+		t({ "/** @type {import('.$types')." }),
+		i(1, " JSDocs Stuff"),
+		t({ "} */" }),
+	}),
 
-s("/", {
-      t({ "/** @type {import('.$types')." })
-      i(1, " JSDocs Stuff"),
-      t({ "} */"}),
-    }),
-
-
-
-------------------------------------------------------------
-
-
-  }
-)
+	------------------------------------------------------------
+})
