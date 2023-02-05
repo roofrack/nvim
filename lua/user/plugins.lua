@@ -44,11 +44,11 @@ return require("packer").startup(function(use)
 
 	-- color schemes
 	use("rebelot/kanagawa.nvim")
-	use({
+	--[[ use({
 		"norcalli/nvim-colorizer.lua", -- Shows the color of stuff in vim
 		require("colorizer").setup(),
 		-- hey rob you don't have a seperate config file for this plugin
-	})
+	}) ]]
 
 	-- treesitter
 	use({
