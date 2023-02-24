@@ -11,7 +11,7 @@ if not status_ok then
 end
 
 -- local servers = { "jsonls", "sumneko_lua", "tsserver", "bashls", "sqlls", "svelte" }
-local servers = { "jsonls", "lua_ls", "tsserver", "bashls", "sqlls", "svelte" }
+local servers = { "denols", "jsonls", "lua_ls", "tsserver", "bashls", "sqlls", "svelte" }
 
 mason_installer.setup({
 	ui = {

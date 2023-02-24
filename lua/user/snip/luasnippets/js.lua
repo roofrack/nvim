@@ -17,6 +17,7 @@ local l = require("luasnip.extras").lambda
 local postfix = require("luasnip.extras.postfix").postfix
 local rep = require("luasnip.extras").rep
 
+ls.filetype_extend("typescript", { "javascript" }) -- Rob you added this to add js snippets to typescript
 ls.add_snippets("javascript", {
 
 	------------------------------------------------------------
