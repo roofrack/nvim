@@ -24,7 +24,7 @@ end
 -- inside your autocommands.lua file. For example this command...
 -- :highlight CursorLine guibg=#2A2A2E
 -- There is also a way using the nvim api but need to learn more...
--- vim.api.nvim_set_hl(0, "CursorLineNr", { cterm=bold, bold=true })
+-- vim.api.nvim_set_hl(0, "CursorLineNr", { cterm = bold, bold = true })
 
 -- [ White space ] -----------------------------------------
 -- Or you can set options the plain old regular way.

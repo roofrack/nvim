@@ -59,7 +59,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<leader>ek", ":e ~/.config/nvim/lua/user/keymaps.lua<CR>", opts)
 keymap("n", "<leader>eo", ":e ~/.config/nvim/lua/user/options.lua<CR>", opts)
 -- keymap('n', '<leader>ep', ':vsplit<cr>:e ~/.config/nvim/lua/user/plugins.lua<CR>:73<CR>', opts)
-keymap("n", "<leader>ep", ":e ~/.config/nvim/lua/user/plugins.lua<CR>:73<CR>", opts)
+keymap("n", "<leader>ep", ":e ~/.config/nvim/lua/user/plugins/plugins.lua<CR>:73<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode

@@ -20,7 +20,6 @@
     symlink = "",
   },
 } ]]
-
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
 	return
@@ -87,6 +86,7 @@ nvim_tree.setup({
 		-- height = 30,
 		hide_root_folder = false,
 		side = "left",
+		preserve_window_proportions = true,
 		mappings = {
 			custom_only = false,
 			list = {
@@ -109,13 +109,13 @@ nvim_tree.setup({
 	},
 	actions = {
 		open_file = {
+			resize_window = false,
 			quit_on_open = true,
 			window_picker = {
 				enable = false,
 			},
 		},
 	},
-
 	--  unknown options as of 22.05
 	--
 	--  update_to_buf_dir = {

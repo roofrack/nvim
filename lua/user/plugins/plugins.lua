@@ -42,13 +42,13 @@ return require("packer").startup(function(use)
 	-- this will make packer update itself
 	use("wbthomason/packer.nvim")
 
-	-- color schemes
-	use("rebelot/kanagawa.nvim")
-	--[[ use({
-		"norcalli/nvim-colorizer.lua", -- Shows the color of stuff in vim
-		require("colorizer").setup(),
-		-- hey rob you don't have a seperate config file for this plugin
-	}) ]]
+	-- colorschemes
+	use({
+		"rebelot/kanagawa.nvim",
+		config = function()
+			require("user.plugins.kanagawa")
+		end,
+	})
 
 	-- treesitter
 	use({
@@ -97,7 +97,6 @@ return require("packer").startup(function(use)
 	-- nvim-lsp-installer is no longer maintained... use mason instead
 	--[[ use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer ]]
-
 	use({
 		"williamboman/mason.nvim", -- newer language-server-installer (MUST INSTALL IN THIS ORDER)
 		"williamboman/mason-lspconfig.nvim", -- integrates mason with lsp-config
@@ -126,7 +125,6 @@ return require("packer").startup(function(use)
 			require("toggleterm").setup()
 		end,
 	}) ]]
-
 	-- Indent lines
 	use("lukas-reineke/indent-blankline.nvim")
 

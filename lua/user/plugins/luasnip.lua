@@ -21,6 +21,8 @@ ls.config.set_config({
 	},
 })
 
+ls.filetype_extend("typescript", { "javascript" }) -- Rob you added this to add js snippets to typescript
+
 -- [ Keymaps ] ---------------------------------------------
 
 -- Jump forwards through snippet nodes
@@ -45,16 +47,11 @@ vim.keymap.set("i", "<C-h>", function()
 end)
 
 -- [ Load Snippets ] ---------------------------------------
--- This loads your snippets in the ~/.config/nvim/luasnippets directory.
--- BUT I HAVENT GOT THIS TO WORK YET.
--- We don't need to specify a filepath here. It just works because its in the runtimepath rtp.
--- require("luasnip.loaders.from_lua").load()
--- require("luasnip.loaders.from_lua").lazy_load("./luasnippets")
-
--- require("luasnip.loaders.from_lua").load({ paths = "~/.config.nvim/lua/user/snip/luasnippets/" })
+-- Custom user created snippets
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/user/snip/luasnippets" })
 
 -- This loads the snippets from the "friendly-snippets" plugin written in vscode format.
 require("luasnip/loaders/from_vscode").lazy_load()
-require("user.snip.luasnippets.all")
-require("user.snip.luasnippets.js")
-require("user.snip.luasnippets.py")
+-- require("user.snip.luasnippets.all")
+-- require("user.snip.luasnippets.js")
+-- require("user.snip.luasnippets.py")
