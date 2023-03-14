@@ -46,7 +46,7 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Better window navigation
 keymap("n", "<c-j>", "<c-w>j", opts)
 keymap("n", "<c-k>", "<c-w>k", opts)
-keymap("n", "<c-h>", "<c-w>", opts)
+keymap("n", "<c-h>", "<c-w>h", opts)
 keymap("n", "<c-l>", "<c-w>l", opts)
 
 -- Resize with arrows
@@ -56,10 +56,10 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Open vim configs for quick edit
-keymap("n", "<leader>ek", ":e ~/.config/nvim/lua/user/keymaps.lua<CR>", opts)
-keymap("n", "<leader>eo", ":e ~/.config/nvim/lua/user/options.lua<CR>", opts)
+keymap("n", "<leader>ek", ":e ~/.config/nvim/lua/user-configs/keymaps.lua<CR>", opts)
+keymap("n", "<leader>eo", ":e ~/.config/nvim/lua/user-configs/options.lua<CR>", opts)
 -- keymap('n', '<leader>ep', ':vsplit<cr>:e ~/.config/nvim/lua/user/plugins.lua<CR>:73<CR>', opts)
-keymap("n", "<leader>ep", ":e ~/.config/nvim/lua/user/plugins/plugins.lua<CR>:73<CR>", opts)
+keymap("n", "<leader>ep", ":e ~/.config/nvim/lua/plugins/init.lua<CR>:73<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode

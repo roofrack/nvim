@@ -4,8 +4,13 @@
 -- local group = vim.api.nvim_create_augroup("HeyBub", { clear = true })
 -- vim.api.nvim_create_autocmd("BufEnter", { command = "echo 'Hello from autocmd!'", group = group })
 
+local function augroup(name)
+	return vim.api.nvim_create_augroup(name, { clear = true })
+end
+
 -- first set up the group...
-local group = vim.api.nvim_create_augroup("exCommands", { clear = true })
+-- local group = vim.api.nvim_create_augroup("exCommands", { clear = true })
+local group = augroup("exCommands")
 
 -- [ some neovim command-line-mode autocmds ] -------------------
 

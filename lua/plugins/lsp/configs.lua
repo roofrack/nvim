@@ -5,15 +5,16 @@
 -- gets set up using the on_attach thingy. Not entirely sure how this works
 -- but I am slowly understanding.
 
-local status_ok, mason_installer = pcall(require, "mason")
-if not status_ok then
-	return
-end
+-- local status_ok, mason_installer = pcall(require, "mason")
+-- if not status_ok then
+-- 	return
+-- end
 
 -- local servers = { "jsonls", "sumneko_lua", "tsserver", "bashls", "sqlls", "svelte" }
 local servers = { "denols", "jsonls", "lua_ls", "tsserver", "bashls", "sqlls", "svelte" }
 
-mason_installer.setup({
+-- mason_installer.setup({
+require("mason").setup({
 	ui = {
 		border = "rounded",
 		icons = {
@@ -33,10 +34,10 @@ local lspconfig = require("lspconfig")
 
 for _, server in pairs(servers) do
 	local opts = {
-		on_attach = require("user.plugins.lsp.handlers").on_attach,
-		capabilities = require("user.plugins.lsp.handlers").capabilities,
+		on_attach = require("plugins.lsp.handlers").on_attach,
+		capabilities = require("plugins.lsp.handlers").capabilities,
 	}
-	local has_custom_opts, server_custom_opts = pcall(require, "user.plugins.lsp.settings." .. server)
+	local has_custom_opts, server_custom_opts = pcall(require, "plugins.lsp.settings." .. server)
 	if has_custom_opts then
 		opts = vim.tbl_deep_extend("force", server_custom_opts, opts)
 	end
