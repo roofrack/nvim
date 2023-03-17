@@ -31,6 +31,7 @@ require("mason-lspconfig").setup({
 
 -- Setting up the LSP with on_attach
 local lspconfig = require("lspconfig")
+require("lspconfig.ui.windows").default_options.border = "rounded"
 
 for _, server in pairs(servers) do
 	local opts = {

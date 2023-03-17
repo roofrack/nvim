@@ -31,7 +31,7 @@ local kind_icons = {
 return {
 
 	{
-		"hrsh7th/nvim-cmp",
+		"hrsh7th/nvim-cmp", -- autocompletion engine
 		event = "InsertEnter",
 		dependencies = { -- cmp completion extensions
 			"hrsh7th/cmp-buffer", -- buffer completions

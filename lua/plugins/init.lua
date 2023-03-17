@@ -18,7 +18,7 @@ return {
 		end,
 	},
 
-	--lsp
+	--lsp (see plugins/lsp/ for configs)
 	{
 		"williamboman/mason.nvim", -- newer language-server-installer (MUST INSTALL IN THIS ORDER)
 		"williamboman/mason-lspconfig.nvim", -- integrates mason with lsp-config

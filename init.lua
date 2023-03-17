@@ -1,3 +1,6 @@
+-- Use hyperfine for benchmark testing...
+-- hyperfine "nvim --headless +qa" --warmup 5k
+
 require("user-configs")
 
 -- Bootstrap lazy.nvim
@@ -14,14 +17,21 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-
--- Lazy.nvim plugin settings go in this opts table
 ------------------------------------------------------------
-local opts = {}
+-- Settings for the lazy.nvim plugin itself go here in this opts table.
 
--- Call the lazy.nvim.setup() function (calls all the plugins)
+local opts = {
+	ui = {
+		-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
+		border = "rounded",
+	},
+}
 ------------------------------------------------------------
+
+-- Call the lazy.nvim.setup() function (calls all the plugins in ~/.config/nvim/lua/plugins/)
 require("lazy").setup("plugins/", opts)
 
--- Some settings need to be called AFTER the lazy.nvim.setup() call
+------------------------------------------------------------
+-- Some settings may need to be called AFTER the lazy.nvim.setup() call
+
 ------------------------------------------------------------

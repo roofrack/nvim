@@ -1,9 +1,8 @@
 return {
-
 	{
 		"rebelot/kanagawa.nvim",
-		lazy = false,
-		priority = 1000, --ensures colorscheme loads first
+		-- lazy = false,
+		-- priority = 1000, --ensures colorscheme loads first
 		config = function()
 			require("kanagawa").setup({
 				colors = {
