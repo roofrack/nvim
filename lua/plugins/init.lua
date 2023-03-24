@@ -28,6 +28,5 @@ return {
 			"jose-elias-alvarez/null-ls.nvim", -- for formmating & linting n sich ie: eslint_d, prettier
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
-		config = function() end,
 	},
 }

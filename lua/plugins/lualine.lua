@@ -75,9 +75,9 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		--requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-		event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
+		-- event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
 		-- event = { "BufWinEnter" },
-		-- event = "VeryLazy",
+		event = "VeryLazy",
 		config = function()
 			require("lualine").setup({
 				options = {
