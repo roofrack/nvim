@@ -14,7 +14,12 @@ return {
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
 		config = function()
-			vim.cmd("hi IndentBlanklineChar guifg=#2E2836 gui=nocombine") -- a much nicer color for the lines
+			-- vim.cmd("hi IndentBlanklineChar guifg=#2E2836 gui=nocombine") -- a much nicer color for the lines
+			require("ibl").setup({
+				indent = {
+					char = "▏", --rob you added this to get a finer line for the indent lines
+				},
+			})
 		end,
 	},
 

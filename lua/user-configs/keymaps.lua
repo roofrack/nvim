@@ -67,12 +67,14 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- [ Plugin mappings ] -------------------------------------
+-- these probably should go in the seperate plugin files
 
 -- NvimTreeToggle
 keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- VimTmuxRunner
-keymap("n", "f<CR>", ":VtrSendFile<CR>", opts)
+-- I mapped this in the Vtr plugin file
+-- keymap("n", "f<CR>", ":VtrSendFile<CR>", opts)
 
 -- Nvim Autopairs
 -- keymap("i", "<C-l>", "<Esc>A ", opts)

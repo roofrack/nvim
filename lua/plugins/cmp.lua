@@ -1,30 +1,30 @@
 --         פּ ﯟ   some other good icons
 local kind_icons = {
-	Text = "",
-	Method = "m",
-	Function = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
-	Class = "",
+	Text = "󰉿",
+	Method = "󰆧",
+	Function = "󰊕",
+	Constructor = "",
+	Field = "󰜢",
+	Variable = "󰀫",
+	Class = "󰠱",
 	Interface = "",
 	Module = "",
-	Property = "",
-	Unit = "",
-	Value = "",
+	Property = "󰜢",
+	Unit = "󰑭",
+	Value = "󰎠",
 	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
+	Keyword = "󰌋",
+	Snippet = "",
+	Color = "󰏘",
+	File = "󰈙",
+	Reference = "󰈇",
+	Folder = "󰉋",
 	EnumMember = "",
-	Constant = "",
-	Struct = "",
+	Constant = "󰏿",
+	Struct = "󰙅",
 	Event = "",
-	Operator = "",
-	TypeParameter = "",
+	Operator = "󰆕",
+	TypeParameter = "",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
@@ -49,6 +49,10 @@ return {
 						require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 					end,
 				},
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
 				mapping = {
 					-- Use C-n/p or Tab to cycle through all the cmp completion/lsp suggestions.
 					-- I used the following mappings in order to preserve
@@ -74,7 +78,7 @@ return {
 					fields = { "kind", "abbr", "menu" },
 					format = function(entry, vim_item)
 						-- Kind icons
-						vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+						vim_item.kind = string.format("%s ", kind_icons[vim_item.kind])
 						-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 						vim_item.menu = ({
 							nvim_lsp = "[LSP]",
@@ -97,11 +101,11 @@ return {
 					behavior = cmp.ConfirmBehavior.Replace,
 					select = false,
 				},
-				window = {
-					documentation = {
-						border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-					},
-				},
+				-- window = {
+				-- 	documentation = {
+				-- 		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+				-- 	},
+				-- },
 				-- experimental = {
 				--   ghost_text = false,
 				--   native_menu = false,

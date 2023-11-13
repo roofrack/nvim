@@ -1,25 +1,33 @@
--- vim-tumux-runner options...
+-- [ vim-tmux-nav & vim-tmux-runner ] ----------------------
 
--- Hey rob this is not a plugin written in lua. You dont call setup(). For these two options to work here
--- I had to add them at the beginning of the file. Can't add them at the end or inside a config function
--- because that doesnt seem to work. They could also be added in the root init.lua file instead.
-
--- Allow use of Vtr mappings using your <leader> key
-vim.g["VtrUseVtrMaps"] = 1 -- map this in root init.lua after setup() call or wont work
-
--- Allows you to send a lua file to the runner
--- vim.api.nvim_exec([[ let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}'} ]], false)
--- Or can use vim.cmd like this...
-vim.cmd("let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}', 'typescript': 'deno run {file}'}")
+-- These two plugins are not written in lua. You dont call the config spec or setup().
+-- I used the lazy.nvim Spec "cond" here so the plugins will only load if tmux is started.
+-- For the Vtr plugin I also added an additional test so if true then a key map is set as well as a few options.
 
 return {
-
 	{
-		"christoomey/vim-tmux-navigator", -- For vim/tmux movement
+		"christoomey/vim-tmux-navigator", --for vim/tmux movement
 		event = "VeryLazy",
+		cond = function() --this will allow the vim-tmux-navigator plugin to load only when a tmux session is running
+			local term = os.getenv("TERM")
+			return term and string.find(term, "tmux")
+		end,
 	},
 	{
 		"christoomey/vim-tmux-runner",
-		event = "VeryLazy",
+		cond = function()
+			local term = os.getenv("TERM")
+			if term and string.find(term, "tmux") then
+				-- this will remap f<CR> to run Vtr send file to runner. Otherwise it is mapped to run current file in vim window
+				vim.keymap.set("n", "f<CR>", ":VtrSendFile<CR>", { noremap = true, silent = true })
+				-- Allow use of Vtr mappings using your <leader> key
+				vim.g["VtrUseVtrMaps"] = 1
+				--Allows you to send a lua file to the runner. Add other file types as needed
+				-- vim.api.nvim_exec([[ let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}'} ]], false)
+				-- Or can use vim.cmd like this...
+				vim.cmd("let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}', 'typescript': 'deno run {file}'}")
+			end
+			return term and string.find(term, "tmux")
+		end,
 	},
 }

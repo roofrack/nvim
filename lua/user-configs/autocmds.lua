@@ -26,7 +26,8 @@ vim.api.nvim_create_autocmd("BufEnter", { command = "hi CursorLine guibg=#2A2A2E
 
 -- Shows the filename in the right side of each window or split
 -- and if the file has been modified with a [+]
-vim.api.nvim_create_autocmd("BufEnter", { command = "set winbar=%=%m.%t", group = group })
+-- vim.api.nvim_create_autocmd("BufEnter", { command = "set winbar=%=%m.%t", group = group })
+vim.api.nvim_create_autocmd("BufEnter", { command = "set winbar=%=%F", group = group })
 
 -- [ play stuff ] ------------------------------------------
 -- vim.api.nvim_create_autocmd("BufEnter", { command = "echo 'Hi Robert'" })
