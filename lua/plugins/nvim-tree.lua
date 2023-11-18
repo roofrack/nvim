@@ -75,11 +75,11 @@ return {
 					number = false,
 					relativenumber = false,
 				},
-				--[[ renderer = {
-        indent_markers = {
-          enable = true,
-        },
-      }, ]]
+				renderer = {
+					indent_markers = {
+						enable = true,
+					},
+				},
 				trash = {
 					cmd = "trash",
 					require_confirm = true,
