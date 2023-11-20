@@ -3,7 +3,10 @@ return {
 	{
 		"nvim-tree/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
-		dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional, for file icons
+		dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      -- { "dressing.nvim"},
+    },
 		tag = "nightly", -- optional, updated every week. (see issue #1193)
 		config = function()
 			local nvim_tree = require("nvim-tree")
@@ -18,6 +21,16 @@ return {
 					end
 				end,
 			})
+
+    -- recommended settings from nvim-tree documentation
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+
+    -- change color for arrows in tree to light blue
+    vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#3FC5FF ]])
+    vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
+
+
 			nvim_tree.setup({
 				respect_buf_cwd = true, -- Rob you added this so cwd would be persistent
 				disable_netrw = true,
@@ -79,6 +92,14 @@ return {
 					indent_markers = {
 						enable = true,
 					},
+         icons = {
+          glyphs = {
+            folder = {
+              arrow_closed = "", -- arrow when folder is closed
+              arrow_open = "", -- arrow when folder is open
+            },
+          },
+        },
 				},
 				trash = {
 					cmd = "trash",

@@ -1,4 +1,3 @@
---         פּ ﯟ   some other good icons
 local kind_icons = {
 	Text = "󰉿",
 	Method = "󰆧",
@@ -37,9 +36,11 @@ return {
 			"hrsh7th/cmp-buffer", -- buffer completions
 			"hrsh7th/cmp-path", -- path completions
 			"hrsh7th/cmp-cmdline", -- cmdline completions
+      "L3MON4D3/LuaSnip", -- snippet engine
 			"saadparwaiz1/cmp_luasnip", -- snippet completions
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lua", -- adding completion for lua config files
+      "onsails/lspkind.nvim", --vs-code like pictograms (this was from the josean video)
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -90,11 +91,11 @@ return {
 						return vim_item
 					end,
 				},
-				sources = {
-					{ name = "nvim_lsp" },
+				sources = { -- put these in the order you want them to appear in the recommondations window
+					{ name = "luasnip" }, -- order this how you want
+					{ name = "nvim_lsp" }, -- from lsp-servers
 					{ name = "nvim_lua" },
-					{ name = "luasnip" },
-					{ name = "buffer" },
+					{ name = "buffer" }, -- text from current buffer
 					{ name = "path" },
 				},
 				confirm_opts = {

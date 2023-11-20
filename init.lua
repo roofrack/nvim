@@ -1,37 +1,15 @@
--- Use hyperfine for benchmark testing...
--- hyperfine "nvim --headless +qa" --warmup 5k
+--                                   __
+--      ___     ___    ___   __  __ /\_\    ___ ___
+--     / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\
+--    /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \
+--    \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\
+--     \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/__SETUP
 
-require("user-configs")
+--------------------------------
+require("user1.user-configs") --\
+require("user1.lazy") -----------\
+----------------------------------\
 
--- Bootstrap lazy.nvim
-------------------------------------------------------------
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-------------------------------------------------------------
--- Settings for the lazy.nvim plugin itself go here in this opts table.
-
-local opts = {
-	ui = {
-		-- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-		border = "rounded",
-	},
-}
-------------------------------------------------------------
-
--- Call the lazy.nvim.setup() function (calls all the plugins in ~/.config/nvim/lua/plugins/)
-require("lazy").setup("plugins/", opts)
-
-------------------------------------------------------------
--- Some settings may need to be called AFTER the lazy.nvim.setup() call
-
-------------------------------------------------------------
+-- Could have an alternate nvim configuration setup here...
+-- require("user2.user-configs")
+-- require("user2.lazy")
