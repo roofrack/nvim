@@ -27,7 +27,7 @@
 ### :construction: Installation
 
 ```sh
-sudo pacman -S neovim
+sudo pacman -S neovim ttf-nerd-fonts-symbols
 ```
 ```sh
 git clone https://github.com/roofrack/nvim $HOME/.config/nvim
@@ -47,7 +47,4 @@ git clone https://github.com/roofrack/nvim $HOME/.config/nvim
 
 ### :white_check_mark: License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-This project is licensed under the terms of the MIT license
-
 
