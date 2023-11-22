@@ -27,9 +27,9 @@ git clone https://github.com/roofrack/nvim $HOME/.config/
 
 ### :star: Acknowledgements
 
-[Folke Lemaitre](https://github/folke)  lazy.nvim  
-[TJ DeVries](https://github/tjdevries)   
-[Josean Martinez](https://www.youtube.com/@joseanmartinez)
+- [Folke Lemaitre](https://github/folke)  lazy.nvim  
+- [TJ DeVries](https://github/tjdevries)   
+- [Josean Martinez](https://www.youtube.com/@joseanmartinez)
 
 ### :white_check_mark: License
 
