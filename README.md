@@ -21,9 +21,9 @@ git clone https://github.com/roofrack/nvim $HOME/.config/
 
 ### :wrench: Configuration
 
-1. open vim and plugins should auto-install
-2. install treesitter parsers :TSInstall
-3. run :checkhealth lazy 
+- open nvim and plugins should auto-install
+- install treesitter parsers :TSInstall
+- run :checkhealth lazy 
 
 ### :star: Acknowledgements
 
