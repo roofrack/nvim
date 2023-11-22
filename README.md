@@ -16,7 +16,7 @@
 sudo pacman -S neovim
 ```
 ```sh
-git clone https://github.com/roofrack/nvim $HOME/.config/
+git clone https://github.com/roofrack/nvim $HOME/.config/nvim
 ```
 
 ### :wrench: Configuration
