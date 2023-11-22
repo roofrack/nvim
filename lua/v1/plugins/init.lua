@@ -1,5 +1,5 @@
 return {
-
+	-- If the plugins do not require much configuration can just stick them in here.
 	-- commentary
 	{
 		"numToStr/Comment.nvim",
@@ -21,17 +21,5 @@ return {
 				},
 			})
 		end,
-	},
-
-	--lsp (see plugins/lsp/ for configs)
-	{
-		"williamboman/mason.nvim", -- newer language-server-installer (MUST INSTALL IN THIS ORDER)
-		"williamboman/mason-lspconfig.nvim", -- integrates mason with lsp-config
-		"neovim/nvim-lspconfig", -- default configs for the language servers
-		-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-		{
-			"jose-elias-alvarez/null-ls.nvim", -- for formmating & linting n sich ie: eslint_d, prettier
-			dependencies = { "nvim-lua/plenary.nvim" },
-		},
 	},
 }

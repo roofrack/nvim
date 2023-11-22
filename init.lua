@@ -5,11 +5,7 @@
 --    \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\
 --     \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/_SETUP
 
--------------------------------\
-require("user1.user-configs") --\
-require("user1.lazy") -----------\
-----------------------------------\
-
--- Could have an alternate nvim configuration setup here...
--- require("user2.user-configs")
--- require("user2.lazy")
+---------------------------->
+require("v1.user-configs") -->
+require("v1.lazy") ----------->
+------------------------------->

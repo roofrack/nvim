@@ -50,7 +50,7 @@ return {
 			-- [ Load Snippets ] ---------------------------------------
 
 			-- Custom user created snippets
-			require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/user1/snip/luasnippets" })
+			require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/v1/snip/luasnippets" })
 			-- This loads the snippets from the "friendly-snippets" plugin written in vscode format.
 			require("luasnip/loaders/from_vscode").lazy_load()
 		end,

@@ -12,15 +12,15 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
+------------------------------------------------------------
 
 -- The setup call at the bottom takes two arguments...
-------------------------------------------------------------
 -- 1) table of plugins
 -- 2) table of options for the lazy.nvim plugin itself
-
+------------------------------------------------------------
 local plugins = {
-	{ import = "user1.plugins" }, -- using import to load multiple modules
-	{ import = "user1.plugins.lsp" }, -- lazy won't auto-load a nested directory so need to specify this
+	{ import = "v1.plugins" }, -- using import to load multiple modules
+	{ import = "v1.plugins.lsp" }, -- lazy won't auto-load a nested directory so need to specify this
 }
 
 local opts = {

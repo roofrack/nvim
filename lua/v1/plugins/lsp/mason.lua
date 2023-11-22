@@ -1,6 +1,6 @@
--- 1) mason.nvim is a package manager for langyage-servers, linters, etc
--- 2) mason-lspconfig.nvim bridges mason.nvim with nvim-lspconfig (or just called lspconfig)
--- 3) After calling the two setup functions below can now set up language-servers using nvim-lspconfig
+-- 1. mason.nvim is a package manager for langyage-servers, linters, formatters, etc
+-- 2. mason-lspconfig.nvim bridges mason.nvim with nvim-lspconfig (or just called lspconfig)
+-- 3. After calling the two setup functions below can now set up language-servers using nvim-lspconfig
 --    in the lspconfig file
 
 return {
@@ -28,10 +28,11 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = {
-				-- list of servers for mason to install
+				-- list of language-servers for mason to install
 				"tsserver",
 				"lua_ls",
 				"bashls",
+				"denols",
 			},
 			-- auto-install configured servers (with lspconfig)
 			-- automatic_installation = true, -- not the same as ensure_installed
