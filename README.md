@@ -1,5 +1,4 @@
-># *Neovim*
->### Nvim Config Files
+># Neovim Configuration Files
 
 ### :sparkles: Features
 
