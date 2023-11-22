@@ -33,6 +33,6 @@ git clone https://github.com/roofrack/nvim $HOME/.config/
 
 ### :white_check_mark: License
 
-This project is licenced under the terms of the MIT license
+This project is licensed under the terms of the MIT license
 
 
