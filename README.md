@@ -12,10 +12,12 @@
 
 ### :construction: Installation
 
-
-`sudo pacman -S neovim`  
-`cd $HOME/.config`  
-`git clone https://github.com/roofrack/nvim`
+```sh
+sudo pacman -S neovim
+```
+```sh
+git clone https://github.com/roofrack/nvim $HOME/.config/
+```
 
 ### :wrench: Configuration
 
