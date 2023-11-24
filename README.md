@@ -22,7 +22,7 @@
 
 ### :bulb: Requirements
 
-- [Neovim](https://neovim.io) > 0.9.1 or later
+- [Neovim](https://neovim.io) > 0.9.1
 
 ### :construction: Installation
 
@@ -36,7 +36,7 @@ git clone https://github.com/roofrack/nvim $HOME/.config/nvim
 ### :wrench: Configuration
 
 - open nvim and plugins should auto-install
-- install treesitter parsers :TSInstall
+- run :TSInstall to install tree-sitter parsers listed in configs
 - run :checkhealth lazy 
 
 ### :star: Acknowledgements

@@ -1,14 +1,7 @@
 -- [ Some General Mappings ] -------------------------------
 
--- Set a variable to shorten function name...
--- NOTE: Hey Rob use 'vim.keymap.set'. It is more for using the lua language and if you
--- use vim.api.nvim_set_keymap while using a function in the mapping then it
--- will throw an error. So use the newer way using 'vim.keymap.set' .
 local keymap = vim.keymap.set
--- local keymap = vim.api.nvim_set_keymap
-
 local opts = { noremap = true, silent = true }
---local opts = { noremap = true }
 
 -- Modes
 --   normal_mode = "n",
@@ -56,10 +49,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Open vim configs for quick edit
-keymap("n", "<leader>ek", ":e ~/.config/nvim/lua/user-configs/keymaps.lua<CR>", opts)
-keymap("n", "<leader>eo", ":e ~/.config/nvim/lua/user-configs/options.lua<CR>", opts)
--- keymap('n', '<leader>ep', ':vsplit<cr>:e ~/.config/nvim/lua/user/plugins.lua<CR>:73<CR>', opts)
-keymap("n", "<leader>ep", ":e ~/.config/nvim/lua/plugins/init.lua<CR>:73<CR>", opts)
+keymap("n", "<leader>em", ":e ~/.config/nvim/lua/v1/user-configs/keymaps.lua<CR>", opts)
+keymap("n", "<leader>eo", ":e ~/.config/nvim/lua/v1/user-configs/options.lua<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -78,4 +69,4 @@ keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- Nvim Autopairs
 -- keymap("i", "<C-l>", "<Esc>A ", opts)
-keymap("i", "<C-l>", "<Esc>%%a", opts)
+keymap("i", "<C-l>", "<Esc>%%a", opts) -- need to redo this, need a better one
