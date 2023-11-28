@@ -1,7 +1,8 @@
 return {
 
 	"toppair/peek.nvim",
-	event = { "VeryLazy" },
+	-- event = { "VeryLazy" },
+	event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
 	build = "deno task --quiet build:fast",
 	config = function()
 		local peek = require("peek")

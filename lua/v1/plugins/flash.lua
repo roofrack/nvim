@@ -1,6 +1,7 @@
 return {
 	"folke/flash.nvim",
-	event = "VeryLazy",
+	-- event = "VeryLazy",
+	event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
 	---@type Flash.Config
 	opts = {},
 	-- stylua: ignore

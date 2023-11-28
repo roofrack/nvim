@@ -10,6 +10,7 @@ local opts = { noremap = true, silent = true }
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+--   search_mode = "s",
 
 -- Set leader key
 vim.g.mapleader = ","
