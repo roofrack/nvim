@@ -1,4 +1,0 @@
--- This file contains bits of things for me to remember
-------------------------------------------------------------
--- Use hyperfine for benchmark testing...
--- hyperfine "nvim --headless +qa" --warmup 5k
