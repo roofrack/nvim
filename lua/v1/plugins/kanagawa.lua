@@ -16,5 +16,11 @@ return {
 			},
 		})
 		vim.cmd("colorscheme kanagawa") -- this is after the setup function but stil inside the config function
+		-- [ Custom highlight Stuff ] ------------------------------
+		-- If you put this custom stuff in user-configs it will get overwritten by this plugin
+		-- So needs to go after the above call to the colorscheme
+		-- or use an autocommand
+		-- CHECKOUT the :help highlight other color hightlight options to change
+		vim.cmd("highlight WinSeparator guifg=#30666b") -- a nice color for the spit lines
 	end,
 }

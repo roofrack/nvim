@@ -13,6 +13,8 @@ end
 local group = augroup("exCommands")
 
 -- [ some neovim command-line-mode autocmds ] -------------------
+-- Rob: not sure which is better... setting an autocommand for these or vim.cmd("command")
+-- NOTE: if using vim.cmd("command") it may get overwritten by a plugin
 
 -- Sets the matching bracket to a color I can see easily.
 vim.api.nvim_create_autocmd("BufEnter", { command = "hi matchParen guibg=grey", group = group })

@@ -1,11 +1,15 @@
+-- NOTE: nvim already has treesitter built into it. This plugin here just makes it easier to install
+-- parsers and some options.
+
 return {
 
 	"nvim-treesitter/nvim-treesitter",
-	event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
+	-- event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			--ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 			ensure_installed = {
+				"c",
 				"help",
 				"html",
 				"css",
@@ -16,11 +20,14 @@ return {
 				"bash",
 				"dockerfile",
 				"vim",
+				"vimdoc",
+				"query",
 				"lua",
 				"markdown",
 				"sql",
 				"typescript",
 			},
+			auto_install = true,
 			sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 			ignore_install = { "" }, -- List of parsers to ignore installing
 			autopairs = {

@@ -12,7 +12,7 @@ return {
 	-- Indent lines
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
+		-- event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
 		config = function()
 			-- vim.cmd("hi IndentBlanklineChar guifg=#2E2836 gui=nocombine") -- a much nicer color for the lines
 			require("ibl").setup({

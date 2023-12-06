@@ -20,12 +20,6 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
--- NOTE: To set command-line-mode options that are multi words use autocommands. Put them
--- inside your autocommands.lua file. For example this command...
--- :highlight CursorLine guibg=#2A2A2E
--- There is also a way using the nvim api but need to learn more...
--- vim.api.nvim_set_hl(0, "CursorLineNr", { cterm = bold, bold = true })
-
 -- [ White space ] -----------------------------------------
 -- Or you can set options the plain old regular way.
 vim.opt.expandtab = true -- convert tabs to spaces
@@ -39,5 +33,13 @@ vim.opt.guicursor = "i:ver100-blinkon250"
 -- opt.foldmethod = "expr"
 -- opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitter to fold
 
+-- [ Command line options ] --------------------------------
+
+-- NOTE: To set command-line-mode options use vim.cmd("command here")
+-- for example vim.cmd("highlight WinSeparator guifg=#30666b")
+-- BUT some commands will get overwritten like this one. It gets overwritten when the
+-- kanagawa plugin gets returned. So stick the command in there (which I did).
+
 -- this is how you run vimscript in a lua file
-vim.api.nvim_exec([[ autocmd TermOpen * setlocal nonumber ]], false)
+-- Rob look into the difference between nvim_exec() and vim.cmd()
+-- vim.api.nvim_exec([[ autocmd TermOpen * setlocal nonumber ]], false)
