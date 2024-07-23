@@ -24,3 +24,5 @@ Read the Neovim Docs Lua-guide (important... Read it)
 - In a lua file...  
   must include the vim.api part or wont work
   `print(vim.api.nvim_get_current_buf())`
+
+- hello Rob
