@@ -10,6 +10,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim", -- this tells Mason to install linters/formmatters
 	},
+
 	config = function()
 		local mason = require("mason") -- import mason
 		local mason_lspconfig = require("mason-lspconfig") -- import mason-lspconfig

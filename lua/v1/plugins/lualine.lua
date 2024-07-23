@@ -86,6 +86,7 @@ return {
 				-- theme = "powerline",
 				theme = "powerline_dark",
 				-- theme = "kanagawa",
+
 				component_separators = { left = "", right = "" },
 				--		section_separators = { left = "", right = "" },
 				--    section_separators = { left = '', right = '' },

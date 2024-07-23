@@ -10,10 +10,12 @@ local options = {
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
 	termguicolors = true,
 	splitbelow = true, -- force all horizontal splits to go below current window
-	-- splitright = true, -- force all vertical splits to go to the right of current window
+	splitright = true, -- force all vertical splits to go to the right of current window
 	swapfile = false,
 	signcolumn = "yes", -- Prevents annoying open/close column
 	laststatus = 3, -- Makes it so only one global status line shows rather then one per split
+	scrolloff = 999, -- keeps cursor in centre of screen when scrolling
+	background = "dark",
 }
 
 for k, v in pairs(options) do
@@ -22,6 +24,10 @@ end
 
 -- NOTE: To set command-line-mode options that are multi words use autocommands. Put them
 -- inside your autocommands.lua file. For example this command...
+
+-- the following should work but I think the kanagawa color plugin is overwriting it
+-- vim.cmd("highlight WinSeperator guifg=#30666b")
+
 -- :highlight CursorLine guibg=#2A2A2E
 -- There is also a way using the nvim api but need to learn more...
 -- vim.api.nvim_set_hl(0, "CursorLineNr", { cterm = bold, bold = true })

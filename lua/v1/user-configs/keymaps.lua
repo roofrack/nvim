@@ -7,8 +7,8 @@
 local keymap = vim.keymap.set
 -- local keymap = vim.api.nvim_set_keymap
 
+-- do not need noremap anymore as long as you use vim.keymap.set()
 local opts = { noremap = true, silent = true }
---local opts = { noremap = true }
 
 -- Modes
 --   normal_mode = "n",
@@ -17,6 +17,7 @@ local opts = { noremap = true, silent = true }
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+--   search_mode = "s",
 
 -- Set leader key
 vim.g.mapleader = ","
@@ -24,16 +25,21 @@ vim.g.mapleader = ","
 -- Leader mappings
 keymap("n", "<leader>a", "ggVG", opts) -- highligt all text
 -- keymap('n', '<leader>sv', '<cmd>w<CR><cmd>source ~/.config/nvim/lua/user/snip/init.lua<CR>', opts)
-keymap("n", "<leader>sv", "<cmd>w<CR><cmd>source %<CR>", opts)
+-- source neovim
+keymap("n", "<leader>sv", "<cmd>w<CR><cmd>source ~/.config/nvim/init.lua<CR>", opts)
+keymap("n", "f<cr>", "<cmd>w<CR><cmd>source %<CR>", opts)
 
 -- Easier to save but need a better one then this
 keymap("n", ";", ":", {})
 
+-- Enter command-line window
+keymap("n", "<leader><leader>", "q:", opts)
+
 -- Exit modes using jk etc...
 keymap("i", "jk", "<Esc>", opts)
 keymap("i", "kj", "<Esc>", opts)
-keymap("c", "jk", "<Esc>", opts)
-keymap("c", "kj", "<Esc>", opts)
+keymap("c", "jk", "<C-c>", opts)
+keymap("c", "kj", "<C-c>", opts)
 keymap("v", "jk", "<Esc>", opts)
 keymap("v", "kj", "<Esc>", opts)
 keymap("s", "jk", "<Esc>", opts)
@@ -56,10 +62,8 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Open vim configs for quick edit
-keymap("n", "<leader>ek", ":e ~/.config/nvim/lua/user-configs/keymaps.lua<CR>", opts)
-keymap("n", "<leader>eo", ":e ~/.config/nvim/lua/user-configs/options.lua<CR>", opts)
--- keymap('n', '<leader>ep', ':vsplit<cr>:e ~/.config/nvim/lua/user/plugins.lua<CR>:73<CR>', opts)
-keymap("n", "<leader>ep", ":e ~/.config/nvim/lua/plugins/init.lua<CR>:73<CR>", opts)
+keymap("n", "<leader>em", ":e ~/.config/nvim/lua/v1/user-configs/keymaps.lua<CR>", { desc = "edit keymaps" })
+keymap("n", "<leader>eo", ":e ~/.config/nvim/lua/v1/user-configs/options.lua<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -70,7 +74,7 @@ keymap("v", ">", ">gv", opts)
 -- these probably should go in the seperate plugin files
 
 -- NvimTreeToggle
-keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
+-- keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
 
 -- VimTmuxRunner
 -- I mapped this in the Vtr plugin file

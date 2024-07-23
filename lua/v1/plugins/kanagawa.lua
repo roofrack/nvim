@@ -1,6 +1,7 @@
 return {
+
 	"rebelot/kanagawa.nvim",
-	-- lazy = false,
+	lazy = false,
 	priority = 1000, --ensures colorscheme loads first
 	config = function()
 		require("kanagawa").setup({
@@ -16,5 +17,7 @@ return {
 			},
 		})
 		vim.cmd("colorscheme kanagawa") -- this is after the setup function but stil inside the config function
+		-- vim.cmd("highlight WinSeparator guifg=#30666b")
+		vim.cmd("highlight WinSeparator guifg=#383231")
 	end,
 }

@@ -1,12 +1,12 @@
 return {
 
 	"nvim-treesitter/nvim-treesitter",
-	event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
+	-- event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
 	config = function()
 		require("nvim-treesitter.configs").setup({
 			--ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 			ensure_installed = {
-				"help",
+				-- "help",
 				"html",
 				"css",
 				"javascript",
