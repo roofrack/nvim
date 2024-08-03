@@ -2,7 +2,7 @@ This file contains bits of things for me to remember
 ------------------------------------------------------------
 
 - Use hyperfine for benchmark testing in the terminal...  
-`hyperfine "nvim --headless +qa" --warmup 5k`
+`hyperfine --warmup 5 "nvim --headless +qa"`
 
 - To load a different nvim setup clone it into .config/nvim_setupName
   and set an alias for the command `NVIM_APPNAME=nvim_setupName nvim`
@@ -25,4 +25,7 @@ Read the Neovim Docs Lua-guide (important... Read it)
   must include the vim.api part or wont work
   `print(vim.api.nvim_get_current_buf())`
 
-- hello Rob
+- To practice or test autocommands, functions, options, etc for vim 
+  can just open an empty lua file, edit whatever commands, options, 
+  autocmmands functions, etc then save & source the file.
+  I have a keymap for this... f<CR>

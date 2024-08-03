@@ -1,5 +1,6 @@
 return {
 	"folke/noice.nvim",
+	-- enabled = false,
 	event = "VeryLazy",
 	dependencies = {
 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -11,6 +12,11 @@ return {
 	},
 
 	opts = {
+		cmdline = {
+			format = {
+				cmdline = { pattern = "^:", icon = ":", lang = "vim" },
+			},
+		},
 		lsp = {
 			-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 			override = {

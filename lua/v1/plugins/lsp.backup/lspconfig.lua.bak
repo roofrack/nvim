@@ -25,11 +25,7 @@ return {
 		local opts = { noremap = true, silent = true }
 
 		local on_attach = function(client, bufnr)
-			local map = function(keys, func, desc)
-				vim.keymap.set("n", keys, func, { desc, silent = true })
-			end
-
-			-- opts.buffer = bufnr
+			opts.buffer = bufnr
 
 			keymap.set( --this keymap is from my old config
 				-- bufnr,

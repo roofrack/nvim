@@ -1,9 +1,11 @@
 return {
 
 	"nvim-treesitter/nvim-treesitter",
-	-- event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
+	event = { "BufReadPre", "BufNewFile" },
+	build = ":TSUpdate",
 	config = function()
-		require("nvim-treesitter.configs").setup({
+		local treesitter = require("nvim-treesitter.configs")
+		treesitter.setup({
 			--ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 			ensure_installed = {
 				-- "help",
@@ -36,7 +38,6 @@ return {
 				enable = true,
 				enable_autocmd = false,
 			},
-			build = ":TSUpdate",
 		})
 	end,
 }

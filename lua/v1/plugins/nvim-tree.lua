@@ -1,4 +1,6 @@
 -- Details on custom mapping are from the nvim-tree github page. To get specific mappings scroll down in the docs.
+-- I'm not sure where the function below should actually go for lazy.nvim setup. This works so will leave it but
+-- maybe it belongs in a config function inside the return. I like this way. Seems cleaner.
 local function my_on_attach(bufnr)
 	local api = require("nvim-tree.api")
 
@@ -23,11 +25,11 @@ vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "nvimTreeToggle", s
 
 return {
 	"nvim-tree/nvim-tree.lua",
+	cmd = "NvimTreeToggle", -- lazy load on command
 	version = "*",
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
-	cmd = "NvimTreeToggle", -- lazy load on command
 	opts = {
 		on_attach = my_on_attach,
 		respect_buf_cwd = true, -- Rob you added this so cwd would be persistent

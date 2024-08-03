@@ -17,7 +17,7 @@ local group = augroup("exCommands")
 -- Sets the matching bracket to a color I can see easily.
 vim.api.nvim_create_autocmd("BufEnter", { command = "hi matchParen guibg=grey", group = group })
 
--- A nicer cursorline color
+-- A nicer cursorline color.
 vim.api.nvim_create_autocmd("BufEnter", { command = "hi CursorLine guibg=#2A2A2E", group = group })
 
 -- Sets the vim split line to a nice thin line rather then a column width line.
@@ -28,6 +28,17 @@ vim.api.nvim_create_autocmd("BufEnter", { command = "hi CursorLine guibg=#2A2A2E
 -- and if the file has been modified with a [+]
 -- vim.api.nvim_create_autocmd("BufEnter", { command = "set winbar=%=%m.%t", group = group })
 vim.api.nvim_create_autocmd("BufEnter", { command = "set winbar=%=%F", group = group })
+
+-- Open help window in a vertical split to the left.
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	group = vim.api.nvim_create_augroup("help_window_left", {}),
+	pattern = { "*.txt" },
+	callback = function()
+		if vim.o.filetype == "help" then
+			vim.cmd.wincmd("H")
+		end
+	end,
+})
 
 -- [ play stuff ] ------------------------------------------
 -- vim.api.nvim_create_autocmd("BufEnter", { command = "echo 'Hi Robert'" })

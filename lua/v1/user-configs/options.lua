@@ -10,7 +10,8 @@ local options = {
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
 	termguicolors = true,
 	splitbelow = true, -- force all horizontal splits to go below current window
-	splitright = true, -- force all vertical splits to go to the right of current window
+	-- splitright = true, -- force all vertical splits to go to the right of current window
+	splitright = false, -- force all vertical splits to go to the right of current window
 	swapfile = false,
 	signcolumn = "yes", -- Prevents annoying open/close column
 	laststatus = 3, -- Makes it so only one global status line shows rather then one per split
@@ -46,4 +47,4 @@ vim.opt.guicursor = "i:ver100-blinkon250"
 -- opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitter to fold
 
 -- this is how you run vimscript in a lua file
-vim.api.nvim_exec([[ autocmd TermOpen * setlocal nonumber ]], false)
+-- vim.api.nvim_exec([[ autocmd TermOpen * setlocal nonumber ]], false)
