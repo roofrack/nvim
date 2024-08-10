@@ -2,8 +2,10 @@ return {
 	-- If the plugins do not require much configuration can just stick them in here.
 
 	-- commentary
+	-- Nvim now has this built in
 	{
 		"numToStr/Comment.nvim",
+		enabled = false,
 		event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
 		opts = {},
 	},

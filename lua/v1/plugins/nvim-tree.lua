@@ -3,24 +3,15 @@
 -- maybe it belongs in a config function inside the return. I like this way. Seems cleaner.
 local function my_on_attach(bufnr)
 	local api = require("nvim-tree.api")
-
 	local function opts(desc)
 		return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 	end
-
 	-- default mappings
 	api.config.mappings.default_on_attach(bufnr)
-
 	-- custom mappings
 	vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
 	vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
-
-	-- change color for arrows in tree to light blue (I don't think this does anything)
-	vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#3FC5FF ]])
-	vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
 end
--- TreeToggle mapping has to be outside the above function in order to work
-vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "nvimTreeToggle", silent = true })
 ------------------------------------------------------------------------------------------
 
 return {
@@ -30,6 +21,14 @@ return {
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
+	init = function()
+		-- init function runs before plugin loads which is important here or keymap won't be seen
+		-- as it lazyloads using this keymap so like I said, the keymap needs to load first
+		vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "nvimTreeToggle", silent = true })
+		-- change color for arrows in tree to light blue (I don't think this does anything)
+		vim.cmd([[ highlight NvimTreeFolderArrowClosed guifg=#3FC5FF ]])
+		vim.cmd([[ highlight NvimTreeFolderArrowOpen guifg=#3FC5FF ]])
+	end,
 	opts = {
 		on_attach = my_on_attach,
 		respect_buf_cwd = true, -- Rob you added this so cwd would be persistent

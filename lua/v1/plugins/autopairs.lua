@@ -28,5 +28,10 @@ return {
 		})
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+
+		-- rob added this... while in insert mode, jump out of brackets
+		-- but won't work for double quotes " by themselves outside any parenthesis
+		-- (can also just type the closing bracket and the cursor will jump outside it)
+		vim.keymap.set("i", "<C-l>", "<Esc>%%a<space>", { silent = true, desc = "autopairs jump out of bracket" })
 	end,
 }
