@@ -49,7 +49,7 @@ local opts = {
 		border = "rounded",
 	},
 	checker = {
-		-- enabled = true,
+		enabled = true,
 		notify = false,
 	},
 	change_detection = {

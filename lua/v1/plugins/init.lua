@@ -11,17 +11,27 @@ return {
 	},
 
 	-- Indent lines
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	event = { "BufReadPre", "BufNewFile" },
+	-- 	config = function()
+	-- 		vim.cmd("hi IndentBlanklineChar guifg=#2E2836 gui=nocombine") -- a much nicer color for the lines
+	-- 		require("ibl").setup({
+	-- 			indent = {
+	-- 				char = "▏", --rob you added this to get a finer line for the indent lines
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
+
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		config = function()
-			vim.cmd("hi IndentBlanklineChar guifg=#2E2836 gui=nocombine") -- a much nicer color for the lines
-			require("ibl").setup({
-				indent = {
-					char = "▏", --rob you added this to get a finer line for the indent lines
-				},
-			})
-		end,
+		main = "ibl",
+		opts = {
+			-- indent = { char = "┊" },
+			indent = { char = "" },
+		},
 	},
 
 	-- Needed this config to move messages to bottom of screen for noice.nvim

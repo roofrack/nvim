@@ -38,7 +38,8 @@ end
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.tabstop = 2 -- insert 2 spaces for a tab
 vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
-vim.opt.guicursor = "i:ver100-blinkon250"
+
+vim.opt.guicursor = "i:ver150-blinkon250"
 -- need to change it to this but how?
 -- set guicursor+=n-v-c:blinkon500-blinkoff500
 

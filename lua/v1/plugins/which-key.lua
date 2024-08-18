@@ -5,7 +5,8 @@ return {
 	event = "VeryLazy",
 	init = function()
 		vim.o.timeout = true
-		vim.o.timeoutlen = 100
+		vim.o.timeoutlen = 200
+		-- setting this means that you have 200 msec to hit the next key in the mapping
 	end,
 	opts = {
 		-- your configuration comes here

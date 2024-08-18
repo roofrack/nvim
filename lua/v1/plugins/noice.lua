@@ -1,4 +1,5 @@
 return {
+
 	"folke/noice.nvim",
 	-- enabled = false,
 	event = "VeryLazy",
@@ -10,7 +11,6 @@ return {
 		--   If not available, we use `mini` as the fallback
 		"rcarriga/nvim-notify",
 	},
-
 	opts = {
 		cmdline = {
 			format = {

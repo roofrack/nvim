@@ -1,4 +1,9 @@
--- [ Some General Mappings ] -------------------------------
+-- Set leader key
+vim.g.mapleader = ","
+
+local map = function(modes, lhs, rhs, desc)
+	vim.keymap.set(modes, lhs, rhs, { noremap = true, silent = true, desc = desc })
+end
 
 --   Modes---
 --   normal_mode = "n",
@@ -9,16 +14,9 @@
 --   command_mode = "c",
 --   search_mode = "s",
 
--- Set leader key
-vim.g.mapleader = ","
-
-local map = function(modes, lhs, rhs, desc)
-	vim.keymap.set(modes, lhs, rhs, { noremap = true, silent = true, desc = desc })
-end
-
--- Easier to save but need a better one then this
-vim.keymap.set("n", ";", ":", { silent = false, desc = "enter commandline mode" })
--- need the false here for noice.nvim to show command line
+-- Exit modes using jk or kj
+map({ "c", "i", "v", "s" }, "jk", "<C-c>", "Go back to Normal Mode")
+map({ "c", "i", "v", "s" }, "kj", "<C-c>", "Go back to Normal Mode")
 
 -- Leader mappings (also leader mappings in seperate plugin files)
 map("n", "<leader>a", "ggVG", "Highlight all Text")
@@ -27,16 +25,6 @@ map("n", "f<cr>", "<cmd>w<CR><cmd>source %<CR>", "Run Current File")
 
 -- Enter command-line window
 map("n", "<leader><leader>", "q:", "Enter Command-Line-Window")
-
--- Exit modes using jk etc...
-map("i", "jk", "<Esc>", "Exit Insert M")
-map("i", "kj", "<Esc>", "Exit Insert M")
-map("c", "jk", "<C-c>", "Exit Command M")
-map("c", "kj", "<C-c>", "Exit Command M")
-map("v", "jk", "<Esc>", "Exit Visual M")
-map("v", "kj", "<Esc>", "Exit Visual M")
-map("s", "jk", "<Esc>", "Exit Search M")
-map("s", "kj", "<Esc>", "Exit Search M")
 
 -- Navigate buffers
 map("n", "<S-l>", ":bnext<CR>", "Buffer Next")
@@ -55,10 +43,13 @@ map("n", "<C-Left>", ":vertical resize -2<CR>", "Resize Window")
 map("n", "<C-Right>", ":vertical resize +2<CR>", "Resize Window")
 
 -- Open vim configs for quick edit
-map("n", "<leader>em", ":vs ~/.config/nvim/lua/v1/user-configs/keymaps.lua<CR>", "Open Keymaps for editing")
-map("n", "<leader>eo", ":vs ~/.config/nvim/lua/v1/user-configs/options.lua<CR>", "Open Options for editing")
+map("n", "<leader>em", ":vs ~/.config/nvim/lua/v1/user-configs/keymaps.lua<CR>", "Edit Keymaps")
+map("n", "<leader>eo", ":vs ~/.config/nvim/lua/v1/user-configs/options.lua<CR>", "Edit Options")
 
 -- Visual --
 -- Stay in indent mode
 map("v", "<", "<gv", "Move Visual Selection Left")
 map("v", ">", ">gv", "Move Visual Selection Right")
+
+-- need the false here for noice.nvim to show command line
+vim.keymap.set("n", ";", ":", { silent = false, desc = "enter commandline mode" })

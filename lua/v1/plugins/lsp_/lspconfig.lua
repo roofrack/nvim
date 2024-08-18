@@ -1,12 +1,12 @@
 ---------------- [ To set up language-servers... ] ---------
 -- 1. install the language-server using Mason or npm or pacman
--- 2. Write an on_attach function (contains mappings n sich)
+-- 2. Write an LspAttach autocommand (contains mappings n sich)
 -- 3. Define capabilities (something to do with enabling auto-completion)
 -- 4. Call the lspconfig setup function for that language-server and assign
 --    the on_attach & capabilities to it. The server name to use here may
 --    be different then the Mason name. Look on the lspconfig website or :h lspconfig
 
---    To see if a server is attached to current buffer use :LspInfo
+--    To see if a server is attached to current buffer use :LspInfo or :checkhealth lsp
 ------------------------------------------------------------
 
 return {
@@ -21,65 +21,39 @@ return {
 		local lspconfig = require("lspconfig") -- import nvim-lspconfig plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp") -- import cmp-nvim-lsp plugin
 
-		local keymap = vim.keymap
-		local opts = { noremap = true, silent = true }
+		-- checkout tj's kickstart.nvim init.lua for his mappings
+		vim.api.nvim_create_autocmd("LspAttach", {
+			group = vim.api.nvim_create_augroup("robert-lsp-attach", { clear = true }),
+			callback = function(event)
+				local map = function(keys, func, desc)
+					vim.keymap.set("n", keys, func, { buffer = event.buf, silent = true, desc = "LSP: " .. desc })
+				end
 
-		local on_attach = function(client, bufnr)
-			local map = function(keys, func, desc)
-				vim.keymap.set("n", keys, func, { desc, silent = true })
-			end
-
-			-- opts.buffer = bufnr
-
-			keymap.set( --this keymap is from my old config
-				-- bufnr,
-				"n",
-				"gl",
-				'<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>',
-				opts
-			)
-			opts.desc = "Show LSP references"
-			keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-
-			opts.desc = "Go to declaration"
-			keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-
-			opts.desc = "Show LSP definitions"
-			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-
-			opts.desc = "Show LSP implementations"
-			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
-
-			opts.desc = "Show LSP type definitions"
-			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
-
-			opts.desc = "See available code actions"
-			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
-
-			opts.desc = "Smart rename"
-			keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
-			opts.desc = "Show buffer diagnostics"
-			keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
-
-			opts.desc = "Show line diagnostics"
-			keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
-
-			opts.desc = "Go to previous diagnostic"
-			keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
-
-			opts.desc = "Go to next diagnostic"
-			keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
-
-			opts.desc = "Show documentation for what is under cursor"
-			keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
-
-			opts.desc = "Restart LSP"
-			keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
-		end
+				map("gR", "<cmd>Telescope lsp_references<CR>", "Show References")
+				map("gD", vim.lsp.buf.declaration, "Go to Declaration")
+				map("gd", "<cmd>Telescope lsp_definitions<CR>", "Show Definitions")
+				map("gi", "<cmd>Telescope lsp_implementations<CR>", "Show Implementations")
+				map("gt", "<cmd>Telescope lsp_type_definitions<CR>", "Show Type Definitions")
+				map("<leader>rn", vim.lsp.buf.rename, "Smart Rename")
+				map("<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show Buffer Diagnostics")
+				map("<leader>d", vim.diagnostic.open_float, "Show Line Diagnostics")
+				map("[d", vim.diagnostic.goto_prev, "Go to Previous Diagnostic")
+				map("]d", vim.diagnostic.goto_next, "Go to Next Diagnostic")
+				map("K", vim.lsp.buf.hover, "Show Documentation for whats Under Cursor")
+				map("<leader>rs", ":LspRestart<CR>", "Restart LSP")
+				vim.keymap.set(
+					{ "n", "v" },
+					"<leader>ca",
+					vim.lsp.buf.code_action,
+					{ desc = "LSP See Availabel Code Actions" }
+				)
+			end,
+		})
 
 		-- [ capabilities ] ----------------------------------------
-		local capabilities = cmp_nvim_lsp.default_capabilities() -- used to enable autocompletion (assigned to every lsp server config)
+		-- local capabilities = cmp_nvim_lsp.default_capabilities() -- used to enable autocompletion (assigned to every lsp server config)
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 		-- [ Some settings for the ui ] ----------------------------
 
@@ -116,25 +90,25 @@ return {
 		-- configure bash-language-server
 		lspconfig["bashls"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 		})
 
 		-- configure html server
 		lspconfig["html"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 		})
 
 		-- configure typescript server with plugin
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 		})
 
 		-- configure css server
 		lspconfig["cssls"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 		})
 
 		-- configure tailwindcss server
@@ -147,7 +121,7 @@ return {
 		lspconfig["svelte"].setup({
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
-				on_attach(client, bufnr)
+				-- on_attach(client, bufnr)
 
 				vim.api.nvim_create_autocmd("BufWritePost", {
 					pattern = { "*.js", "*.ts" },
@@ -163,33 +137,33 @@ return {
 		-- configure prisma orm server
 		lspconfig["prismals"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 		})
 
 		-- configure graphql language server
 		lspconfig["graphql"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 		})
 
 		-- configure emmet language server
 		lspconfig["emmet_ls"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
 
 		-- configure python server
 		lspconfig["pyright"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 		})
 
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
-			on_attach = on_attach,
+			-- on_attach = on_attach,
 			settings = { -- custom settings for lua
 				Lua = {
 					-- make the language server recognize "vim" global

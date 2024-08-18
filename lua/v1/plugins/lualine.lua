@@ -1,123 +1,91 @@
--- defining a few tables & functions for lualine ...
-
-local hide_in_width = function()
-	return vim.fn.winwidth(0) > 80
-end
-
-local diagnostics = {
-	"diagnostics",
-	sources = { "nvim_diagnostic" },
-	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
-	colored = false,
-	update_in_insert = false,
-	always_visible = false,
-}
-
-local diff = {
-	"diff",
-	colored = false,
-	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-	cond = hide_in_width,
-}
-
-local progress = {
-	padding = 1,
-	"progress",
-}
-
-local mode = {
-	"mode",
-	fmt = function(str)
-		--return "-- " .. str .. " --"
-		return str
-	end,
-}
-
-local filetype = {
-	"filetype",
-	icons_enabled = true,
-	icon = nil,
-}
-
-local branch = {
-	"branch",
-	icons_enabled = true,
-	icon = "",
-}
-
-local location = function()
-	-- return "%l:%-2v %L"
-	return "%l/%L col:%-2v"
-end
-
-local spaces = function()
-	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-end
---------------------------------------------------------------------------------
-
 return {
-
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-	--requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	-- event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
-	-- event = { "BufWinEnter" },
+	dependencies = {
+		"nvim-tree/nvim-web-devicons",
+	},
 	event = "VeryLazy",
-	config = function()
-		require("lualine").setup({
-			options = {
-				icons_enabled = true,
-				-- theme = "auto",
-				-- theme = "powerline",
-				theme = "powerline_dark",
-				-- theme = "kanagawa",
+	opts = {
+		options = {
+			icons_enabled = true,
+			theme = "powerline_dark", -- other themes check lualine.nvim
+			component_separators = { left = "", right = "" },
+			disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+			always_divide_middle = true,
+		},
+		sections = {
+			-- Note: brackets have to surround section components of course Robert
+			-- and add the component options underneath component name.
+			-- <--a,b,c on left side and x,y,z--> on right side
 
-				component_separators = { left = "", right = "" },
-				--		section_separators = { left = "", right = "" },
-				--    section_separators = { left = '', right = '' },
-				--    component_separators = { left = '', right = '' },
-				disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
-				always_divide_middle = true,
+			lualine_a = {
+				{ "mode", icon = "󰕷" },
 			},
-			sections = {
-				lualine_a = { mode },
-				lualine_b = { branch, diagnostics },
-				lualine_c = { "filename" },
-				-- lualine_x = { "encoding", "fileformat", "filetype" },
-				-- lualine_x = { diff, spaces, "encoding", filetype },
-				-- lualine_x = { "fileformat", "hostname", "encoding", filetype },
-				lualine_x = {
-					"hostname",
+			------------------------------------------------------
+			lualine_b = {
+				{
+					"branch",
+					icons_enabled = true,
+					icon = "",
+				},
+				{
+					"diagnostics",
+					sources = { "nvim_diagnostic" },
+					sections = { "error", "warn" },
+					symbols = { error = " ", warn = " " },
+					colored = false,
+					update_in_insert = false,
+					always_visible = false,
+				},
+			},
+			------------------------------------------------------
+			lualine_c = { "filename" },
+			------------------------------------------------------
+			lualine_x = {
+				{
+					-- "Component to show how many lazy.nvim updates"
+					require("lazy.status").updates,
+					cond = require("lazy.status").has_updates,
+					color = { fg = "#ff9e64" },
+				},
+				"hostname",
+				{
 					"fileformat",
-					"encoding",
-					filetype,
+					color = { fg = "#f6fa0f" },
 				},
-				-- lualine_y = { progress },
-				-- lualine_y = {},
-				-- lualine_y = {percent_thru_file},
-				lualine_y = {
-					progress,
-				},
-				-- lualine_z = { location, progress },
-				-- lualine_z = { location, lines_count },
-				lualine_z = {
-					{
-						location,
-						padding = 0,
-					},
+				"encoding",
+				"filetype",
+			},
+			------------------------------------------------------
+			lualine_y = {
+				{
+					"progress",
+					padding = 1, -- adds more room to expand so looks better
 				},
 			},
-			inactive_sections = {
-				lualine_a = {},
-				lualine_b = {},
-				lualine_c = { "filename" },
-				lualine_x = { "location" },
-				lualine_y = {},
-				lualine_z = {},
+			------------------------------------------------------
+			lualine_z = {
+				{
+					"location",
+					-- Rob you made this custom function for the location. Needed to use fmt
+					-- here in order to use a function. Think that is a lualine thing?
+					-- icon = "",
+					fmt = function()
+						return " %l/%L  %-2v"
+					end,
+					left_padding = 0,
+				},
 			},
-			tabline = {},
-			extensions = {},
-		})
-	end,
+		},
+		inactive_sections = { -- for splits but I have one status line set
+			lualine_a = {},
+			lualine_b = {},
+			lualine_c = { "filename" },
+			lualine_x = { "location" },
+			lualine_y = {},
+			lualine_z = {},
+		},
+		tabline = {},
+		extensions = { -- I dont know what this does???
+		},
+	},
 }
