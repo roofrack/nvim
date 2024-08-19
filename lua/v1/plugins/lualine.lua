@@ -41,8 +41,9 @@ return {
 			lualine_c = {
 				{
 					"filename",
-					color = { fg = "#2afa62", gui = "italic,bold" },
-					-- color = { fg = "#2afa62", gui = "italic" },
+					-- color = { fg = "#2afa62", bg = "#402b2b", gui = "italic" },
+					color = { fg = "#2afa62", gui = "italic" },
+					separator = { right = "" },
 					icon = { "󰈙", color = { fg = #"bc66d9", gui = "italic" } },
 				},
 			},
@@ -57,11 +58,11 @@ return {
 				{
 					"hostname",
 					color = { gui = "italic" },
-					icon = { "", color = { fg = "#b6b6fc", gui = "italic" } },
+					icon = { "", color = { fg = "#574e4d", gui = "italic" } },
 				},
 				{ "fileformat", color = { fg = "#f6fa0f", gui = "italic" } },
 				{ "encoding", color = { gui = "italic" } },
-				{ "filetype", color = { gui = "italic" }, icon_only = true },
+				{ "filetype", color = { gui = "italic" }, icon_only = false },
 			},
 			------------------------------------------------------
 			lualine_y = {

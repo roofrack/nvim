@@ -32,7 +32,7 @@ return {
 		-- { "j-hui/fidget.nvim", event = "VeryLazy", opts = {} }, -- makes nvim slower to load initially?
 
 		-- lazydev Not sure what this is
-		{ "lazydev.nvim" },
+		{ "lazydev.nvim" }, -- Lua lsp from folke?
 	},
 
 	config = function()
