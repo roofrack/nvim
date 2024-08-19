@@ -38,22 +38,30 @@ return {
 				},
 			},
 			------------------------------------------------------
-			lualine_c = { "filename" },
+			lualine_c = {
+				{
+					"filename",
+					color = { fg = "#2afa62", gui = "italic,bold" },
+					-- color = { fg = "#2afa62", gui = "italic" },
+					icon = { "󰈙", color = { fg = #"bc66d9", gui = "italic" } },
+				},
+			},
 			------------------------------------------------------
 			lualine_x = {
 				{
 					-- "Component to show how many lazy.nvim updates"
 					require("lazy.status").updates,
 					cond = require("lazy.status").has_updates,
-					color = { fg = "#ff9e64" },
+					color = { fg = "#ff9e64", gui = "italic" },
 				},
-				"hostname",
 				{
-					"fileformat",
-					color = { fg = "#f6fa0f" },
+					"hostname",
+					color = { gui = "italic" },
+					icon = { "", color = { fg = "#b6b6fc", gui = "italic" } },
 				},
-				"encoding",
-				"filetype",
+				{ "fileformat", color = { fg = "#f6fa0f", gui = "italic" } },
+				{ "encoding", color = { gui = "italic" } },
+				{ "filetype", color = { gui = "italic" }, icon_only = true },
 			},
 			------------------------------------------------------
 			lualine_y = {
@@ -68,7 +76,6 @@ return {
 					"location",
 					-- Rob you made this custom function for the location. Needed to use fmt
 					-- here in order to use a function. Think that is a lualine thing?
-					-- icon = "",
 					fmt = function()
 						return " %l/%L  %-2v"
 					end,

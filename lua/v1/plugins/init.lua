@@ -42,4 +42,11 @@ return {
 			top_down = false,
 		},
 	},
+
+	{
+		-- This will put you at the last edit spot when opening a file in nvim
+		-- Fantastic!
+		"vladdoster/remember.nvim",
+		config = true,
+	},
 }

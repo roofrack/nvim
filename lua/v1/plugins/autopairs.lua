@@ -1,5 +1,4 @@
 return {
-
 	"windwp/nvim-autopairs",
 	event = "InsertEnter", -- this works great for lazy loading
 
@@ -32,6 +31,6 @@ return {
 		-- rob added this... while in insert mode, jump out of brackets
 		-- but won't work for double quotes " by themselves outside any parenthesis
 		-- (can also just type the closing bracket and the cursor will jump outside it)
-		vim.keymap.set("i", "<C-l>", "<Esc>%%a<space>", { silent = true, desc = "autopairs jump out of bracket" })
+		vim.keymap.set("i", "<C-l>", "<Esc>%%a<space>", { silent = true, desc = "Autopairs jump out of bracket" })
 	end,
 }
