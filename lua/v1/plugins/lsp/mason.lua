@@ -30,10 +30,11 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				-- list of language-servers for mason to install
-				"tsserver",
+				-- "tsserver", this doesnt work anymore, use ts_ls
+				"ts_ls",
 				"lua_ls",
 				"bashls",
-				"denols",
+				-- "denols",
 			},
 			-- auto-install configured servers (with lspconfig)
 			-- automatic_installation = true, -- not the same as ensure_installed

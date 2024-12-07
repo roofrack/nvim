@@ -11,10 +11,17 @@ return {
 		--   If not available, we use `mini` as the fallback
 		"rcarriga/nvim-notify",
 	},
+
 	opts = {
 		cmdline = {
 			format = {
 				cmdline = { pattern = "^:", icon = ":", lang = "vim" },
+			},
+		},
+		routes = { -- Rob you added this so q macro would show up
+			{
+				view = "notify",
+				filter = { event = "msg_showmode" },
 			},
 		},
 		lsp = {
@@ -35,3 +42,5 @@ return {
 		},
 	},
 }
+
+-- require("noice").setup({routes = {{view = "cmdline",filter = { event = "msg_showmode" },},}

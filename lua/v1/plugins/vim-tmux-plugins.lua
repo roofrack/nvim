@@ -13,19 +13,30 @@ return {
 			return term and string.find(term, "tmux")
 		end,
 	},
+
 	{
 		"christoomey/vim-tmux-runner",
 		cond = function()
 			local term = os.getenv("TERM")
 			if term and string.find(term, "tmux") then
-				vim.keymap.set("n", "f<CR>", ":VtrSendFile<CR>", { noremap = true, silent = true })
 				-- this will remap f<CR> to run Vtr send file to runner. Otherwise it is mapped to run current file in vim window
+				vim.keymap.set("n", "f<CR>", ":VtrSendFile<CR>", { noremap = true, silent = true })
+				-- vim.keymap.set(
+				-- 	"n",
+				-- 	"f<CR>",
+				-- 	":w<CR>:VtrAttachToPane<CR>:VtrSendCommandToRunner<CR>",
+				-- 	{ noremap = true, silent = true }
+				-- )
+
 				vim.g["VtrUseVtrMaps"] = 1
 				-- Allow use of Vtr mappings using your <leader> key
+
 				--Allows you to send a lua file to the runner. Add other file types as needed
-				-- vim.api.nvim_exec([[ let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}'} ]], false)
 				-- Or can use vim.cmd like this...
-				vim.cmd("let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}', 'typescript': 'deno run {file}'}")
+				-- vim.cmd("let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}', 'typescript': 'deno run {file}'}")
+				vim.cmd(
+					"let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}', 'typescript': 'deno run {file}', 'go': 'go run {file}'}"
+				)
 			end
 			return term and string.find(term, "tmux")
 		end,

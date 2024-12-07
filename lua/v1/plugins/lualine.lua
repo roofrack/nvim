@@ -16,6 +16,7 @@ return {
 			-- Note: brackets have to surround section components of course Robert
 			-- and add the component options underneath component name.
 			-- <--a,b,c on left side and x,y,z--> on right side
+			-- (for icons go to nerdfonts cheatsheet... can cp paste etc)
 
 			lualine_a = {
 				{ "mode", icon = "󰕷" },

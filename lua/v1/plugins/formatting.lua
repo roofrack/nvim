@@ -20,6 +20,7 @@ return {
 				-- yaml = { "prettier" },
 				-- markdown = { "prettier" },
 				-- graphql = { "prettier" },
+				go = { "gofumpt" },
 				lua = { "stylua" },
 				-- python = { "isort", "black" },
 			},

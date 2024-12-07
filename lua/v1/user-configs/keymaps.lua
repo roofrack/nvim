@@ -15,8 +15,11 @@ end
 --   search_mode = "s",
 
 -- Exit modes using jk or kj
-map({ "c", "i", "v", "s" }, "jk", "<C-c>", "Go back to Normal Mode")
-map({ "c", "i", "v", "s" }, "kj", "<C-c>", "Go back to Normal Mode")
+-- I use <C-c> for c mode here because the noise command line window would hang otherwise
+map("c", "jk", "<C-c>", "Go back to Normal Mode")
+map("c", "kj", "<C-c>", "Go back to Normal Mode")
+map({ "i", "v", "s" }, "jk", "<Esc>", "Go back to Normal Mode")
+map({ "i", "v", "s" }, "kj", "<Esc>", "Go back to Normal Mode")
 
 -- Leader mappings (also leader mappings in seperate plugin files)
 map("n", "<leader>a", "ggVG", "Highlight all Text")

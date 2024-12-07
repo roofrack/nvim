@@ -85,6 +85,7 @@ return {
 
 		local config = {
 			-- disable virtual text
+			-- this puts the error & warning messages on the screen
 			virtual_text = false,
 			-- show signs
 			signs = {
@@ -106,6 +107,19 @@ return {
 
 		-- [ Setting up each language-server ] ---------------------
 
+		-- configure golang-language-server
+		lspconfig["gopls"].setup({
+			capabilities = capabilities,
+			-- I got these setup options from the gopls repo but do not seem to work
+			settings = {
+				gopls = {
+					-- auto import things
+					completeUnimported = true,
+					-- auto add function placeholders
+					usePlaceholders = true,
+				},
+			},
+		})
 		-- configure bash-language-server
 		lspconfig["bashls"].setup({
 			capabilities = capabilities,
@@ -119,7 +133,8 @@ return {
 		})
 
 		-- configure typescript server with plugin
-		lspconfig["tsserver"].setup({
+		-- lspconfig["tsserver"].setup({
+		lspconfig["ts_ls"].setup({
 			capabilities = capabilities,
 			-- on_attach = on_attach,
 		})

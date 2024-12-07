@@ -3,12 +3,12 @@ return {
 
 	-- commentary
 	-- Nvim now has this built in
-	{
-		"numToStr/Comment.nvim",
-		enabled = false,
-		event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
-		opts = {},
-	},
+	-- {
+	-- 	"numToStr/Comment.nvim",
+	-- 	enabled = false,
+	-- 	event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
+	-- 	opts = {},
+	-- },
 
 	-- Indent lines
 	-- {

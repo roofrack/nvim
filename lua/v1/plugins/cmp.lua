@@ -44,6 +44,9 @@ return {
 	config = function()
 		local cmp = require("cmp")
 		cmp.setup({
+			-- I found this in the documentation and used it because in go files it would auto pick
+			-- the LSP entry in the list and I found that annoying
+			preselect = cmp.PreselectMode.None,
 			snippet = {
 				expand = function(args)
 					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.

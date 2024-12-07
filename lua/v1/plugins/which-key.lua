@@ -4,8 +4,8 @@ return {
 	-- enabled = false,
 	event = "VeryLazy",
 	init = function()
-		-- vim.o.timeout = true
-		-- vim.o.timeoutlen = 200
+		vim.o.timeout = true
+		vim.o.timeoutlen = 250
 		-- setting this means that you have 200 msec to hit the next key in the mapping
 	end,
 	opts = {
