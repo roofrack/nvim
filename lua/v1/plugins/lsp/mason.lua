@@ -2,6 +2,11 @@
 -- 2. mason-lspconfig.nvim bridges mason.nvim with nvim-lspconfig (or just called lspconfig)
 -- 3. After calling the two setup functions below can now set up language-servers using nvim-lspconfig
 --    in the lspconfig file
+--
+-- Notes:
+-- Rob, for shell scripts use Mason to install both shellcheck and shfmt. Remember this...
+-- the bashls lsp server uses shellcheck behind the scenes. And formmating uses shfmt
+-- as per your formatting.lua plugin file.
 
 return {
 
