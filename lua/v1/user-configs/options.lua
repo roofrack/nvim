@@ -23,6 +23,7 @@ for k, v in pairs(options) do
 	vim.opt[k] = v
 end
 
+vim.opt.winborder = "rounded"
 -- NOTE: To set command-line-mode options that are multi words use autocommands. Put them
 -- inside your autocommands.lua file. For example this command...
 

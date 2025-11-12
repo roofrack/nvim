@@ -1,6 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPre", "BufNewFile" },
+	-- event = { "BufReadPre", "BufNewFile" },
 	build = ":TSUpdate",
 	config = function()
 		local treesitter = require("nvim-treesitter.configs")

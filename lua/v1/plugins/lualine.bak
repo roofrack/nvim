@@ -63,14 +63,7 @@ return {
 				},
 				{ "fileformat", color = { fg = "#f6fa0f", gui = "italic" } },
 				{ "encoding", color = { gui = "italic" } },
-
-				{
-					"filetype",
-					color = { gui = "italic" },
-					-- icon_only = true,
-					-- color = { fg = "#abcdef", bg = "#123456", gui = "italic" },
-				},
-
+				{ "filetype", color = { gui = "italic" }, icon_only = false },
 				{
 					"lsp_status",
 					icon = "", -- f013

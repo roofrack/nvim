@@ -5,7 +5,7 @@ This file contains bits of things for me to remember
 `hyperfine --warmup 5 "nvim --headless +qa"`
 
 - To load a different nvim setup clone it into .config/nvim_setupName
-  and set an alias for the command `NVIM_APPNAME=nvim_setupName nvim`
+  and set a bashrc alias for the command `NVIM_APPNAME=nvim_setupName nvim`
 
 - For plugins I generally lazy load with this. Speeds up loading...
   event = { "CursorMoved", "InsertEnter", "CmdlineEnter" }

@@ -1,6 +1,7 @@
 return {
 
 	"toppair/peek.nvim",
+	enabled = false,
 	-- event = { "VeryLazy" },
 	event = { "CursorMoved", "InsertEnter", "CmdlineEnter" },
 	build = "deno task --quiet build:fast",
