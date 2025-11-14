@@ -20,6 +20,8 @@ return {
 				"ts_ls",
 				"gopls",
 				"html",
+				"bashls",
+				"vimls",
 				-- "cssls",
 				-- "tailwindcss",
 				-- "svelte",
@@ -45,6 +47,17 @@ return {
 				},
 			},
 			"neovim/nvim-lspconfig",
+			-- dependencies = { "saghen/blink.cmp" },
+			-- Trying to get blink.cmp capabilities to work but this didnt work
+			-- Havent got this to work yet
+			--
+			-- local capabilities = require("blink.cmp").get_lsp_capabilities()
+			-- config = function()
+			-- vim.lsp.config("*", {
+			-- capabilities = capabilities,
+			-- require("lspconfig").setup({ capabilities = capabilities }),
+			-- })
+			-- end,
 		},
 	},
 	{

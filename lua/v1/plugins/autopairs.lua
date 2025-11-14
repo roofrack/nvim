@@ -26,8 +26,9 @@ return {
 				highlight_grey = "LineNr",
 			},
 		})
-		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-		require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+		-- Not sure if I added this or if its really needed
+		-- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+		-- require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
 		-- rob added this... while in insert mode, jump out of brackets
 		-- but won't work for double quotes " by themselves outside any parenthesis
