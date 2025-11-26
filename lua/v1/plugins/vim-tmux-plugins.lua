@@ -35,7 +35,8 @@ return {
 				-- Or can use vim.cmd like this...
 				-- vim.cmd("let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}', 'typescript': 'deno run {file}'}")
 				vim.cmd(
-					"let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}', 'typescript': 'deno run {file}', 'go': 'go run {file}'}"
+					-- "let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}', 'typescript': 'deno run {file}', 'go': 'go run {file}'}"
+					"let g:vtr_filetype_runner_overrides = {'lua': 'lua {file}', 'typescript': 'deno run {file}', 'go': 'go run {file}', 'rust': 'cargo run --quiet {file}'}"
 				)
 			end
 			return term and string.find(term, "tmux")

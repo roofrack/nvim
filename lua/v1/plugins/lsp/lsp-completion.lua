@@ -7,7 +7,8 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "antosha417/nvim-lsp-file-operations", config = true },
-		{ "folke/lazydev.nvim", opts = {} },
+		-- { "folke/lazydev.nvim", opts = {} }, -- this plugin fixes the global vim error
+		-- trying this without the above plugin to see if get any vim global errors
 	},
 	config = function()
 		-- import cmp-nvim-lsp plugin

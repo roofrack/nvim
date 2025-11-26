@@ -1,6 +1,6 @@
 -- 1. mason.nvim is a package manager for langyage-servers, linters, formatters, etc
 -- 2. nvim-lspconfig is a plugin for quick configs for language-servers.
--- 3. mason-lspconfig.nvim bridges mason.nvim with nvim-lspconfig (or just called lspconfig)
+-- 3. mason-lspconfig.nvim bridges mason.nvim with nvim-lspconfig.
 -- 4. Must install mason-lspconfig.nvim first. Then as dependencies install mason.nvim and
 --    then nvim-lspconfig plugins in that order.
 -- 5. mason-lspconfig will automatically call vim.lsp.enable() for each server.
@@ -26,11 +26,17 @@ return {
 				-- "tailwindcss",
 				-- "svelte",
 				"lua_ls",
+				-- "rust_analyzer", -- install this with rustup component add rust-analyzer instead of mason
 				-- "graphql",
 				-- "emmet_ls",
 				-- "prismals",
 				-- "pyright",
 				-- "eslint",
+			},
+			automatic_enable = {
+				exclude = {
+					"rust_analyzer", -- exclude for when using rustcreteanvim plugin (prevent conflict with rustaceanvim plugin)
+				},
 			},
 		},
 		dependencies = {
@@ -70,6 +76,10 @@ return {
 				-- "black", -- python formatter
 				-- "pylint",
 				-- "eslint_d",
+				"shellcheck",
+				"shfmt", -- bash formatter
+				"golangci_lint_ls", -- go linter
+				"gofumpt", -- go formatter
 			},
 		},
 		dependencies = {

@@ -17,6 +17,7 @@ local options = {
 	laststatus = 3, -- Makes it so only one global status line shows rather then one per split
 	scrolloff = 999, -- keeps cursor in centre of screen when scrolling
 	background = "dark",
+	clipboard = "unnamedplus", -- allows you to copy to clipboard (install xclip for X11)
 }
 
 for k, v in pairs(options) do

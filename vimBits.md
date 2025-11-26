@@ -29,3 +29,13 @@ Read the Neovim Docs Lua-guide (important... Read it)
   can just open an empty lua file, edit whatever commands, options, 
   autocmmands functions, etc then save & source the file.
   I have a keymap for this... f<CR>
+
+-- [ MACROS and Registers Remember this ] ------------------
+    - To edit a macro
+    - use let command
+    - open commandline and type... let @a = "whatever you want to save to register a" ENTER
+    OR
+    - paste from register into current buffer by typing "ap (pastes contents from register a)
+    - to save edited macro type "ayy (this saves the line to the a register)
+
+    TO SUMMARIZE... access the registers using these keys... "<register name> (double quote and then register name)

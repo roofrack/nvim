@@ -14,8 +14,9 @@ return {
 			-- typescriptreact = { "eslint_d" },
 			-- svelte = { "eslint_d" },
 			-- python = { "pylint" },
-			go = { "golangcilint" },
+			-- go = { "golangcilint" }, -- this might be wrong name
 			-- shell = { "shellcheck" },
+			-- rust = { "clippy" }, -- rust linter NOT working yet
 			shell = { "bashls" },
 		}
 

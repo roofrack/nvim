@@ -1,4 +1,4 @@
--- Some keymaps and UI settings inside an autocmd so only runs when LSP is attached --
+-- [ LSP Keymaps ] -----------------------------------------
 -- checkout tj's kickstart.nvim init.lua for his mappings
 
 local keymap = vim.keymap -- for conciseness
@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		opts.desc = "Restart LSP"
 		keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 
-		-- [ Some settings for the ui ] ----------------------------
+		-- [ Some settings for the UI ] ----------------------------
 
 		local severity = vim.diagnostic.severity
 		vim.diagnostic.config({
