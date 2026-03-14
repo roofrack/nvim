@@ -2,8 +2,8 @@
 -- That is what the `after` directory is for... this will extend or override the lsp server configuration in nvim-lspconfig.
 
 return {
-	-- to get the compatible version of rust-analyzer to use with this version of rust install the lsp using..
-	-- rustup component add rust-analyzer (instead of using Mason to install it)
+	-- To get the compatible version of rust-analyzer to use with this version of rust install the lsp using..
+	-- `rustup component add rust-analyzer` (instead of using Mason to install it)
 	-- now need to tell vim.lsp.config where to find it so use the cmd below...
 	cmd = {
 		"rustup",

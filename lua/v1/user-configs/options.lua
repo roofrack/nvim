@@ -18,6 +18,7 @@ local options = {
 	scrolloff = 999, -- keeps cursor in centre of screen when scrolling
 	background = "dark",
 	clipboard = "unnamedplus", -- allows you to copy to clipboard (install xclip for X11)
+	exrc = true, -- need to read up on this but its for rust-analyzer to work in esp32 stuff
 }
 
 for k, v in pairs(options) do

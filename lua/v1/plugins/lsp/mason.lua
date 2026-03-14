@@ -26,7 +26,7 @@ return {
 				-- "tailwindcss",
 				-- "svelte",
 				"lua_ls",
-				-- "rust_analyzer", -- install this with rustup component add rust-analyzer instead of mason
+				-- "rust_analyzer", -- install this with `rustup component add rust-analyzer` instead of mason
 				-- "graphql",
 				-- "emmet_ls",
 				-- "prismals",
@@ -35,7 +35,7 @@ return {
 			},
 			automatic_enable = {
 				exclude = {
-					"rust_analyzer", -- exclude for when using rustcreteanvim plugin (prevent conflict with rustaceanvim plugin)
+					-- "rust_analyzer", -- exclude for when using rustcreteanvim plugin (prevent conflict with rustaceanvim plugin)
 				},
 			},
 		},

@@ -1,9 +1,10 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	-- event = { "BufReadPre", "BufNewFile" },
+	lazy = false,
+	-- enabled = false,
 	build = ":TSUpdate",
 	config = function()
-		local treesitter = require("nvim-treesitter.configs")
+		local treesitter = require("nvim-treesitter.config")
 		treesitter.setup({
 			--ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 			ensure_installed = {

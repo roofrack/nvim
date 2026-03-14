@@ -3,7 +3,7 @@
 --       duplicates lsp setups with this plugin.
 return {
 	"mrcjkb/rustaceanvim",
-	-- enabled = false,
+	enabled = false,
 	version = "^6", -- Recommended
 	lazy = false, -- This plugin is already lazy
 }
